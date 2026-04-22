@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="clean">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAIP Frontier Consultancy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- GOOGLE FONTS: Swap per theme. Default below is for the "clean" theme. -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── THEME VARIABLES — injected per deck ── */
+:root{
+  /* backgrounds */
+  --bg: #F8F8F7;
+  --bg-white: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #F1F1EF;
+  --bg-code: #F1F1EF;
+
+  /* foregrounds */
+  --fg: #21211F;
+  --fg-secondary: #4A4A46;
+  --fg-muted: #797971;
+  --fg-weak: #A9A9A3;
+
+  /* borders */
+  --border: #E2E2DF;
+  --border-light: #ECECEA;
+
+  /* accent: teal */
+  --teal: #2D6E6D;
+  --teal-hover: #388988;
+  --teal-active: #204F4E;
+  --teal-bg: #2D6E6D0C;
+  --teal-bg-strong: #2D6E6D18;
+
+  /* accent: coral */
+  --coral: #FF5858;
+  --coral-soft: #FF585818;
+
+  /* accent: burgundy */
+  --burgundy: #791A3F;
+  --burgundy-soft: #791A3F12;
+
+  /* semantic colors */
+  --green: #43A584;
+  --blue: #4790FF;
+  --purple: #7B61FF;
+
+  /* shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-xl: 0 8px 32px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.05);
+
+  /* radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-pill: 100em;
+
+  /* fonts */
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-body);font-size:16px;
+  line-height:1.6;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── Progress bar ── */
+#progress{
+  position:fixed;top:0;left:0;height:3px;
+  background:var(--teal);width:0;z-index:100;
+  transition:width .5s var(--ease-out);
+}
+
+/* ── Nav dots ── */
+#nav{
+  position:fixed;right:24px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:12px;z-index:100;
+}
+.nav-dot{
+  width:8px;height:8px;border-radius:50%;
+  border:1.5px solid var(--fg-weak);background:transparent;
+  cursor:pointer;transition:all .3s var(--ease-out);
+  position:relative;
+}
+.nav-dot::after{
+  content:attr(data-label);
+  position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  font-size:11px;letter-spacing:.02em;color:var(--fg-muted);
+  white-space:nowrap;opacity:0;pointer-events:none;
+  transition:opacity .2s;font-family:var(--font-body);font-weight:500;
+}
+.nav-dot:hover::after{opacity:1}
+.nav-dot.active{
+  background:var(--teal);border-color:var(--teal);
+  transform:scale(1.4);
+}
+
+/* ── Counter ── */
+#counter{
+  position:fixed;bottom:28px;left:36px;z-index:100;
+  font-family:var(--font-body);font-size:12px;
+  letter-spacing:.04em;color:var(--fg-weak);font-weight:500;
+}
+#counter span{color:var(--teal);font-weight:600}
+
+/* ── Keyboard hint ── */
+#keys{
+  position:fixed;bottom:28px;right:36px;z-index:100;
+  font-size:11px;color:var(--fg-weak);display:flex;gap:5px;align-items:center;
+  font-family:var(--font-body);
+}
+.key{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:22px;height:22px;border:1px solid var(--border);
+  border-radius:var(--radius-sm);font-size:9px;
+  background:var(--bg-white);box-shadow:var(--shadow-sm);
+}
+
+/* ── Deck ── */
+#deck{
+  scroll-snap-type:y mandatory;overflow-y:scroll;height:100vh;
+  scroll-behavior:smooth;
+}
+#deck::-webkit-scrollbar{display:none}
+.slide{
+  min-height:100vh;scroll-snap-align:start;
+  display:flex;align-items:center;justify-content:center;
+  padding:60px 80px;position:relative;overflow:hidden;
+}
+
+/* ── Content ── */
+.slide-inner{max-width:1060px;width:100%;position:relative;z-index:1}
+
+/* ── Typography ── */
+.part-label{
+  font-family:var(--font-body);font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--teal);font-weight:600;
+  margin-bottom:12px;display:inline-block;
+}
+h1{
+  font-family:var(--font-display);font-size:clamp(40px,5vw,64px);
+  line-height:1.1;font-weight:800;margin-bottom:24px;
+  letter-spacing:-.02em;color:var(--fg);
+}
+h1 .accent{color:var(--teal)}
+h1 .coral{color:var(--coral)}
+h2{
+  font-family:var(--font-display);font-size:clamp(30px,3.2vw,44px);
+  line-height:1.15;font-weight:700;margin-bottom:20px;
+  letter-spacing:-.015em;
+}
+h2 .accent{color:var(--teal)}
+h2 .coral{color:var(--coral)}
+.lead{
+  font-size:19px;line-height:1.65;color:var(--fg-secondary);
+  max-width:600px;margin-bottom:36px;
+}
+.lead strong{color:var(--fg);font-weight:600}
+.quote{
+  border-left:3px solid var(--teal);padding:12px 0 12px 20px;
+  color:var(--fg-secondary);font-size:17px;line-height:1.6;
+  margin-top:32px;max-width:640px;
+}
+.quote strong{color:var(--fg);font-weight:600}
+
+/* ── Bullet list ── */
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.feature-list li{color:var(--fg-secondary);font-size:15px;display:flex;align-items:baseline;gap:8px}
+.feature-list .dot{
+  width:6px;height:6px;border-radius:50%;background:var(--teal);
+  flex-shrink:0;position:relative;top:1px;
+}
+.feature-list strong{color:var(--fg);font-weight:600}
+
+/* ── Slide backgrounds ── */
+.slide-hero{background:var(--bg-white)}
+.slide-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 50% 50% at 80% 20%,var(--teal-bg),transparent),
+             radial-gradient(ellipse 40% 40% at 10% 80%,var(--coral-soft),transparent);
+  pointer-events:none;
+}
+.slide-alt{background:var(--bg)}
+
+/* ── Stat grid ── */
+.stat-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;
+}
+.stat-card{
+  background:var(--bg-white);border:1px solid var(--border-light);
+  border-radius:var(--radius-lg);padding:24px 20px;text-align:center;
+  box-shadow:var(--shadow-sm);transition:all .3s var(--ease-out);
+}
+.stat-card:hover{border-color:var(--teal);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.stat-number{
+  font-family:var(--font-display);font-size:40px;font-weight:800;
+  color:var(--teal);line-height:1;margin-bottom:6px;
+}
+.stat-label{font-size:13px;color:var(--fg-secondary);font-weight:500}
+
+/* ── Card grid ── */
+.card-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0;
+}
+.info-card{
+  background:var(--bg-white);border:1px solid var(--border-light);
+  border-radius:var(--radius-lg);padding:18px 20px;
+  box-shadow:var(--shadow-sm);transition:all .3s var(--ease-out);
+}
+.info-card:hover{border-color:var(--teal);box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.info-card .icon{font-size:22px;margin-bottom:6px}
+.info-card .card-title{font-family:var(--font-display);font-weight:700;font-size:15px;margin-bottom:4px}
+.info-card .card-text{font-size:15px;color:var(--fg-secondary);line-height:1.5}
+.info-card .card-text strong{color:var(--fg);font-weight:600}
+
+/* ── Block grid ── */
+.block-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.block-card{
+  background:var(--bg-white);border:1px solid var(--border-light);
+  border-radius:var(--radius-lg);padding:24px 20px;
+  box-shadow:var(--shadow-sm);transition:all .3s var(--ease-out);
+}
+.block-card:hover{border-color:var(--teal);box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.block-icon{font-size:28px;margin-bottom:10px}
+.block-title{font-family:var(--font-display);font-weight:700;font-size:16px;margin-bottom:6px}
+.block-desc{font-size:15px;color:var(--fg-secondary);line-height:1.5;margin-bottom:10px}
+
+/* ── Process flow ── */
+.process-flow{
+  display:flex;align-items:center;gap:0;margin:24px 0;flex-wrap:wrap;
+  justify-content:center;
+}
+.process-step{
+  background:var(--bg-white);border:1px solid var(--border-light);
+  border-radius:var(--radius-md);padding:10px 16px;
+  font-size:14px;font-weight:500;box-shadow:var(--shadow-sm);
+}
+.process-arrow{color:var(--fg-weak);font-size:16px;padding:0 6px}
+
+/* ── Ladder (vertical progression) ── */
+.ladder{display:flex;flex-direction:column;gap:12px;margin:28px 0;max-width:700px}
+.ladder-item{
+  background:var(--bg-white);border:1px solid var(--border-light);
+  border-radius:var(--radius-lg);padding:18px 24px;
+  box-shadow:var(--shadow-sm);transition:all .3s var(--ease-out);
+  border-left:4px solid var(--border);
+}
+.ladder-item:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.ladder-item.active{border-left-color:var(--teal);background:var(--teal-bg)}
+.ladder-item .ladder-name{font-family:var(--font-display);font-weight:700;font-size:15px;margin-bottom:3px}
+.ladder-item .ladder-desc{font-size:13px;color:var(--fg-muted);line-height:1.45}
+.ladder-item.active .ladder-name{color:var(--teal)}
+
+/* ── Two cols ── */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+
+/* ── Resource list ── */
+.resource-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:24px 0}
+.resource-list li{
+  font-size:15px;color:var(--fg-secondary);
+  display:flex;align-items:center;gap:10px;
+}
+.resource-list li strong{color:var(--fg);font-weight:600}
+.resource-list a{color:var(--teal);text-decoration:none;font-weight:500}
+.resource-list a:hover{text-decoration:underline}
+
+/* ── Reveal animations ── */
+.reveal{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}
+.reveal.d5{transition-delay:.4s}
+
+/* ── Title slide ── */
+.slide-title{text-align:center}
+.slide-title .slide-inner{display:flex;flex-direction:column;align-items:center}
+.slide-title h1{margin-bottom:16px}
+.slide-title .lead{text-align:center;max-width:520px}
+.start-hint{
+  margin-top:44px;display:flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--fg-weak);
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ── Callout ── */
+.callout{
+  background:var(--teal-bg-strong);border-radius:var(--radius-lg);
+  padding:20px 24px;margin:20px 0;
+}
+.callout strong{color:var(--teal)}
+
+/* ── Block-grid hero variant (slide: toolbox-agents) ── */
+.block-grid-hero { gap: 20px; margin: 24px 0; }
+.block-grid-hero .block-card {
+  padding: 28px 24px;
+  border-left-width: 3px;
+  border-left-style: solid;
+  transition: all .3s var(--ease-out);
+}
+.block-grid-hero .block-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .slide{padding:40px 28px}
+  .cols{grid-template-columns:1fr;gap:24px}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .card-grid{grid-template-columns:1fr}
+  .block-grid{grid-template-columns:1fr}
+  .ladder{max-width:100%}
+  #nav{display:none}
+}
+/* ── Presenter mode (inline) ── */
+#presenter-view{display:none}
+body.mode-presenter{background:#111;color:#e8e8e8;overflow:hidden}
+body.mode-presenter #deck,body.mode-presenter #nav,body.mode-presenter #counter,body.mode-presenter #keys,body.mode-presenter #progress,body.mode-presenter #header-link{display:none}
+body.mode-presenter #presenter-view{
+  display:grid;grid-template-rows:auto 1fr auto;
+  height:100vh;font-family:'Inter',system-ui,sans-serif;
+}
+.pv-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 24px;border-bottom:1px solid #2a2a2a;background:#161616;
+}
+.pv-label{
+  font-family:'Plus Jakarta Sans',system-ui;font-size:13px;
+  font-weight:700;color:var(--teal);letter-spacing:.04em;text-transform:uppercase;
+}
+.pv-counter{font-size:13px;color:#555;font-weight:500}
+.pv-counter span{color:var(--teal);font-weight:700}
+.pv-main{display:grid;grid-template-columns:420px 1fr;gap:0;overflow:hidden}
+.pv-thumb-panel{
+  background:#0a0a0a;border-right:1px solid #2a2a2a;
+  display:flex;align-items:center;justify-content:center;
+  padding:16px;overflow:hidden;
+}
+.pv-thumb-frame{
+  width:390px;height:220px;border-radius:6px;
+  border:1px solid #333;overflow:hidden;background:var(--bg);position:relative;
+}
+.pv-thumb-frame iframe{
+  width:1280px;height:720px;
+  transform:scale(0.305);transform-origin:0 0;
+  border:none;pointer-events:none;
+}
+.pv-notes-panel{
+  padding:32px 40px;overflow-y:auto;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.pv-notes-do{
+  font-size:14px;color:var(--teal);font-weight:600;
+  margin-bottom:16px;line-height:1.5;
+  font-family:'Plus Jakarta Sans',system-ui;
+}
+.pv-notes-say{font-size:26px;line-height:1.65;font-weight:300;color:#d4d4d4}
+.pv-waiting{color:#444;font-style:italic;font-size:18px;line-height:1.6}
+.pv-footer{
+  padding:8px 24px;border-top:1px solid #2a2a2a;
+  font-size:11px;color:#444;background:#161616;
+  display:flex;justify-content:space-between;
+}
+.pv-footer kbd{
+  background:#222;border:1px solid #3a3a3a;border-radius:3px;
+  padding:1px 5px;font-size:10px;
+}
+/* Thumbnail mode — hide chrome so iframe looks clean */
+body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-thumb #progress,body.mode-thumb #header-link{display:none}
+</style>
+</head>
+<body>
+
+<div id="header-link"><a href="https://linkedin.com/in/johanwallquist" target="_blank" style="font-size:12px;color:var(--fg-muted);text-decoration:none;font-family:var(--font-body);font-weight:500;letter-spacing:.02em;padding:8px 16px;display:inline-block;">Johan Wallquist &middot; Partner Solution Architect, Microsoft</a></div>
+<div id="progress"></div>
+<nav id="nav"></nav>
+<div id="counter"><span>1</span> / -</div>
+<div id="keys"><span class="key">&uarr;</span><span class="key">&darr;</span> navigate</div>
+
+<div id="deck">
+
+<section class="slide slide-title slide-hero" id="title" data-label="Title" data-notes="DO: Let the title hold for a beat. Read the subtitle out loud — that is the thesis. SAY: Cloud and AI Platform partners are in a strange spot right now. Customers are buying AI. You are selling AI. And most delivery teams are still working the old way — documents written by hand, status decks assembled from five tabs, a week of onboarding before the first line of code. That gap is the opportunity. The tools you sell are the tools you deliver with. This session is about closing that gap.">
+  <div class="slide-inner">
+    <div class="part-label reveal">FRONTIER CONSULTANCY · L200</div>
+    <h1 class="reveal d1">CAIP <span class="accent">Frontier</span> Consultancy</h1>
+    <p class="lead reveal d2">Agents take the clicks. Consultants take the architecture.</p>
+    <p class="reveal d3" style="font-size:14px;color:var(--fg-muted);margin-top:-8px">Johan Wallquist · Partner Solution Architect, Microsoft</p>
+    <div class="start-hint reveal d4">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll or press &darr; to begin
+    </div>
+  </div>
+</section>
+
+<section class="slide slide-alt slide-title" id="section-opportunity" data-label="The Opportunity" data-notes="DO: Section transition. Short. Move quickly into the next slide. SAY: Before the tools, let's talk about the math. Why this matters to your P&amp;L, not just your tech stack.">
+  <div class="slide-inner" style="text-align:center;max-width:700px;margin:0 auto;">
+    <div class="part-label reveal">ACT ONE</div>
+    <h2 class="reveal d1">The <span class="accent">Opportunity</span></h2>
+    <p class="lead reveal d2">Where your margin is hiding — and why it is recoverable now.</p>
+  </div>
+</section>
+
+<section class="slide" id="partner-voice" data-label="Partner Voice" data-notes="DO: Hold on the heading for a beat. Read each card in turn, do not rush. Watch the room — partners will nod at the one that fits them. Name it: 'I see the nods on demand.' Keep the cards up while you talk; they do the social proof work. SAY: Before we open any decks, three things we keep hearing from partners. First, talent. Your best consultants are spending a quarter of their week on the boring work. That is where your margin should be sitting. Second, demand. Customers are not asking if agents fit — they are asking how many they can buy. Your pipeline is moving faster than your staffing model. Third, risk. Modernisation projects are long and expensive, and the outcomes are not guaranteed. Every long project is a bet. If one of these feels like your team, you are not alone. If all three feel like your team, this session is for you.">
+  <div class="slide-inner">
+    <div class="part-label reveal">WHAT PARTNERS ARE TELLING US</div>
+    <h2 class="reveal d1">Three things we <span class="accent">keep hearing</span>.</h2>
+    <p class="lead reveal d2">Different firms, different regions, same three patterns in every partner conversation this year.</p>
+    <div class="card-grid reveal d3">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">Talent is stretched thin</div>
+        <div class="card-text">"We are short on skilled consultants — and the ones we have spend a quarter of their week on the boring work."</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <div class="card-title">Demand is ahead of staffing</div>
+        <div class="card-text">"Customers are not asking if agents fit. They are asking how many they can buy. We are selling agents faster than we can staff them."</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">⏳</div>
+        <div class="card-title">Long projects carry risk</div>
+        <div class="card-text">"Modernisation projects are long, expensive, and the outcomes are not guaranteed. Every long project is a bet."</div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">If you recognise one of these, you are not alone. If you recognise all three, this session is for you.</p>
+  </div>
+</section>
+
+<section class="slide" id="hook-stats" data-label="Where Margin Hides" data-notes="DO: Optional opener: run a 2-min Menti poll — &quot;Where does your team spend the most non-billable time?&quot; Documentation / research / scheduling / manual tasks. Reveal results, then move to the three stats. SAY: Sixty to eighty hours per engagement on documentation and admin. That is a full consultant-week, buried inside every project, before you bill a single dollar of AI work. Fifteen percent of consultant time never reaches an invoice. And here is the part that has changed: the same reports now show twenty-five to forty percent of that overhead is reducible with AI tooling that is already public. You already own the licences. The question is whether your delivery process reflects it yet.">
+  <div class="slide-inner">
+    <div class="part-label reveal">THE HOOK</div>
+    <h2 class="reveal d1">Reclaim <span class="accent">25%</span> of your team's time</h2>
+    <p class="lead reveal d2">Three numbers every CAIP leader should know. One of them is already moving.</p>
+    <div class="stat-grid reveal d2">
+      <div class="stat-card">
+        <div class="stat-number">60–80h</div>
+        <div class="stat-label">Documentation overhead per engagement (Forrester)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15%</div>
+        <div class="stat-label">Consultant time on unbilled admin (McKinsey)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">25–40%</div>
+        <div class="stat-label">Overhead reduction possible with AI (GitHub Octoverse)</div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">[TODO: insert real partner anecdote] — e.g. "Nordic CAIP partner ran their first AI-first Workshop-to-Plan in Q3. 22h → 5h. Won the follow-on 8-week engagement."</p>
+  </div>
+</section>
+
+<section class="slide" id="lifecycle" data-label="Delivery Lifecycle" data-notes="DO: Walk the phases left to right. Pause on Discovery and Design — point at the highlight. Then mention the continuous loop back from Operate to Discovery. SAY: Every engagement follows this arc. Pre-sales, discovery, design, build, test, deploy, operate — then the loop starts again when scope evolves. Most of the talking about AI in delivery focuses on the build phase. That misses where the money is. Sixty to seventy percent of the overhead sits in the client-facing phases up front. Workshops, requirements, architecture assessments, proposals. The next slides show you the specific tools that bite into that.">
+  <div class="slide-inner">
+    <h2 class="reveal d1">The Partner <span class="accent">Delivery Lifecycle</span></h2>
+    <p class="lead reveal d2">Every CAIP project follows this arc. AI can compress every phase — but the overhead clusters up front.</p>
+    <div class="process-flow reveal d3">
+      <div class="process-step">Pre-Sales</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Discovery</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Design</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Build</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Test / QA</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Deploy</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Operate</div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">60–70% of delivery overhead clusters in the client-facing phases (Pre-Sales → Design). That is where AI-first compounds fastest.</p>
+  </div>
+</section>
+
+<section class="slide slide-alt slide-title" id="section-toolbelt" data-label="Toolbelt" data-notes="DO: Section transition. Hand gesture across the lifecycle slide you just showed. SAY: Let's take that lifecycle and map the tooling. Three views coming up. Client-facing work, where partners lead. Delivery execution, where speed compounds. And the project management backbone that ties it together.">
+  <div class="slide-inner" style="text-align:center;max-width:700px;margin:0 auto;">
+    <div class="part-label reveal">ACT TWO</div>
+    <h2 class="reveal d1">The CAIP AI-First <span class="accent">Toolbelt</span></h2>
+    <p class="lead reveal d2">Three lenses on the same toolbox — by who uses it, where speed compounds, and what holds the rest together.</p>
+  </div>
+</section>
+
+<section class="slide" id="client-facing" data-label="Client-Facing" data-notes="DO: Point at each card in turn. Don't read the cards verbatim — elaborate. SAY: Pre-sales first. Azure Copilot pulls reference architectures and cost estimates straight from the Architecture Center. Your solution architects spend time adapting, not searching. Discovery, second. M365 Copilot does the recaps and the action items — free, already on, most teams are not using it seriously yet. WorkIQ gives you workplace analytics so you understand the customer before the workshop, not after. Design, third. Foundry patterns and Copilot Studio shortcuts turn a two-week design sprint into four days.">
+  <div class="slide-inner">
+    <div class="part-label reveal">PHASE 1 · PRE-SALES → DESIGN</div>
+    <h2 class="reveal d1">Client-Facing Phases — where <span class="accent">partners lead</span></h2>
+    <p class="lead reveal d2">Pre-sales, discovery, design. AI replaces the manual grind. Human judgment stays where it belongs.</p>
+    <div class="card-grid reveal d3" style="grid-template-columns:repeat(3,1fr)">
+      <div class="info-card">
+        <div class="icon">💼</div>
+        <div class="card-title">Pre-Sales</div>
+        <div class="card-text">Azure Copilot and Architecture Center draft solutioning content and cost models in minutes. Proposals stop being blank pages.</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">🔍</div>
+        <div class="card-title">Discovery</div>
+        <div class="card-text">M365 Copilot handles meeting recaps and action tracking. WorkIQ surfaces how the customer's teams actually work.</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">🏛️</div>
+        <div class="card-title">Design</div>
+        <div class="card-text">Copilot Studio and Azure AI Foundry patterns accelerate architecture decisions. ADRs and landing zone templates write themselves.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="delivery-execution" data-label="Delivery Execution" data-notes="DO: Emphasise 'agent mode' — that's the 2026 shift. Not autocomplete any more. SAY: A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Agent mode means Copilot writes the code, runs the tests, reads the errors, and opens the pull request. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. That is the multiplier. Same developer, double the throughput. And that carries through test, deploy, operate. The speed compounds because every phase hands cleaner context to the next.">
+  <div class="slide-inner">
+    <div class="part-label reveal">PHASE 2 · BUILD → OPERATE</div>
+    <h2 class="reveal d1">Delivery Execution — where <span class="accent">speed compounds</span></h2>
+    <p class="lead reveal d2">Build, test, deploy, operate. GitHub Copilot in agent mode — plus MCP — is where the 30–50% speedups stop being a slide and start being real.</p>
+    <div class="card-grid reveal d3" style="grid-template-columns:repeat(4,1fr)">
+      <div class="info-card">
+        <div class="icon">⚡</div>
+        <div class="card-title">Build</div>
+        <div class="card-text">GitHub Copilot agent mode writes code, runs tests, opens PRs. Azure MCP gives it live cloud context. 30–50% faster is conservative now.</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">🧪</div>
+        <div class="card-title">Test / QA</div>
+        <div class="card-text">Copilot generates unit tests. Azure Load Testing scales perf runs. GenAI Ops handles evaluation for AI workloads.</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">🚀</div>
+        <div class="card-title">Deploy</div>
+        <div class="card-text">GitHub Actions with Copilot assist. Deployment drift caught before it reaches production.</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">📈</div>
+        <div class="card-title">Operate</div>
+        <div class="card-text">Azure Copilot for monitoring. Incidents summarised, root causes proposed, runbooks generated on the fly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="pm-backbone" data-label="PM Backbone" data-notes="DO: Spend extra seconds on the catalog block. This is the piece most partners still do not know exists. SAY: Here's the piece that ties it together, and here's what changed this year. Microsoft now publishes an official MCP catalog at github.com/microsoft/mcp. Azure MCP, ADO MCP, Fabric MCP, Microsoft Learn MCP, SQL, Power BI, Clarity, Data Factory. One place, one naming convention, remote endpoints where it makes sense. If you were waiting for MCP to feel official before putting it in production — that wait is over.">
+  <div class="slide-inner">
+    <div class="part-label reveal">PHASE 3 · CONNECTIVE TISSUE</div>
+    <h2 class="reveal d1">The <span class="accent">Project Management</span> Backbone</h2>
+    <p class="lead reveal d2">The connective tissue. MCP is no longer a niche experiment — it is an official Microsoft catalog.</p>
+    <div class="block-grid reveal d3">
+      <div class="block-card">
+        <div class="block-icon">📋</div>
+        <div class="block-title">ADO Copilot + Remote MCP</div>
+        <div class="block-desc">Work items, sprints, PRs — managed conversationally. ADO MCP remote endpoint is in public preview. No more SDK plumbing.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">📊</div>
+        <div class="block-title">WorkIQ + Power BI</div>
+        <div class="block-desc">Workplace analytics on how your delivery team actually spends time. Power BI with Copilot surfaces risk across portfolios.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🧩</div>
+        <div class="block-title">The Microsoft MCP Catalog</div>
+        <div class="block-desc">github.com/microsoft/mcp. Azure, ADO, Fabric, Learn, Power BI Modeling, SQL, GitHub, Clarity, Data Factory — one place.</div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">This is the 2026 shift: MCP is a first-class Microsoft surface, not a side project.</p>
+  </div>
+</section>
+
+<section class="slide slide-alt slide-title" id="section-demo" data-label="Demo" data-notes="DO: Take a breath. Switch to terminal. Check the projector is still on the right monitor. SAY: Enough slides. Let me show you.">
+  <div class="slide-inner" style="text-align:center;max-width:700px;margin:0 auto;">
+    <div class="part-label reveal">ACT THREE</div>
+    <h2 class="reveal d1"><span class="accent">Live</span> Demo</h2>
+    <p class="lead reveal d2">Copilot CLI. Azure MCP. ADO MCP. One prompt. Three systems. Real cloud context.</p>
+  </div>
+</section>
+
+<section class="slide" id="demo-cli" data-label="Demo: CLI + MCP" data-notes="DO: Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers before you start. SAY: I need to set up a landing zone for a new customer project. In the old world, that is two to four hours. Consultant opens the Architecture Center, reads the current patterns, writes the Bicep, logs the work in ADO, schedules the review meeting. Watch what happens when I type one prompt.">
+  <div class="slide-inner">
+    <div class="part-label reveal">LIVE DEMO</div>
+    <h2 class="reveal d1"><span class="accent">Copilot CLI</span> + MCP in action</h2>
+    <p class="lead reveal d2">One landing-zone request. Watch it query Azure, generate Bicep from your patterns, and log the work item in ADO.</p>
+    <div class="reveal d2" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 12px;border-radius:var(--radius-sm);text-transform:uppercase;margin-bottom:12px;">LIVE DEMO</div>
+    <div class="process-flow reveal d3">
+      <div class="process-step">Prompt the CLI</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Query Azure (Azure MCP)</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Generate Bicep</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Create ADO Work Item</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Summarise & hand off</div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">If the demo fails: cut to the pre-recorded terminal capture and narrate the output.</p>
+  </div>
+</section>
+
+<section class="slide slide-alt slide-title" id="section-paths" data-label="Delivery Paths" data-notes="DO: Section transition. Quick. SAY: Now the delivery paths. These are the shapes an engagement can take. Pick the one that matches where your customer actually is.">
+  <div class="slide-inner" style="text-align:center;max-width:700px;margin:0 auto;">
+    <div class="part-label reveal">ACT FOUR</div>
+    <h2 class="reveal d1"><span class="accent">Four</span> Delivery Paths</h2>
+    <p class="lead reveal d2">All partner-led. Start with one. Most engagements end up running two or three in parallel.</p>
+  </div>
+</section>
+
+<section class="slide" id="four-paths" data-label="Four Paths Overview" data-notes="DO: Read the four names out loud. Don't explain yet — the next four slides are dedicated to each. SAY: Four paths. Workshop-to-Plan is the universal starter — I'd bet every engagement in this room starts with some version of a workshop. Agentic Modernization is for app and data migration, which is where most CAIP pipeline lives. AI Path to Production is the meta-play — you're using AI tools to deliver AI projects, and your customer is doing the same. And Pro-Code is the GitHub Copilot-led path across the full SDLC. We'll take each one in turn.">
+  <div class="slide-inner">
+    <h2 class="reveal d1">Four paths, all <span class="accent">partner-led</span></h2>
+    <p class="lead reveal d2">Workshop-to-Plan is the universal entry point. The other three branch from it.</p>
+    <div class="block-grid reveal d3">
+      <div class="block-card">
+        <div class="block-icon">🗺️</div>
+        <div class="block-title">Workshop-to-Plan</div>
+        <div class="block-desc">Your lowest-barrier entry. Any partner can run an AI-accelerated workshop this week. Turns a two-day scoping exercise into a half-day.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🔄</div>
+        <div class="block-title">Agentic Modernization</div>
+        <div class="block-desc">App and data migration. You lead the TCO assessment. Microsoft's Cloud Accelerate Factory backs you on the execution.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🤖</div>
+        <div class="block-title">AI Path to Production</div>
+        <div class="block-desc">The meta-play. Use AI tools to deliver AI projects. Microsoft Foundry Agent Service at the core.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">⚡</div>
+        <div class="block-title">Pro-Code Development</div>
+        <div class="block-desc">GitHub Copilot in agent mode across the full SDLC. The MCP catalog is the unlock.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="workshop-to-plan" data-label="Workshop-to-Plan" data-notes="DO: This is the path partners can run THIS WEEK. Emphasise the zero-barrier framing. SAY: Workshop-to-Plan is the path every partner in this room can start on Monday. Six steps. The punchline is on the right — a traditional cycle eats fifteen to twenty-five hours of consultant time across prep, workshop, and write-up. With this stack, four to six. That's not a projection. Partners doing this today hit those numbers on their second or third run.">
+  <div class="slide-inner">
+    <div class="part-label reveal">PATH 1</div>
+    <h2 class="reveal d1"><span class="accent">Workshop</span>-to-Plan</h2>
+    <p class="lead reveal d2">Six steps. From customer research to delivered plan. Traditional 15–25h becomes 4–6h.</p>
+    <div class="cols reveal d2">
+      <div>
+    <ul class="feature-list reveal d3">
+      <li><span class="dot"></span><span><strong>1. Research</strong>— AI-assisted customer context via MCP (30 min, was 2–4h manual)</span></li>
+      <li><span class="dot"></span><span><strong>2. Prep</strong>— Copilot-generated deck and agenda (1h, was 3–5h from scratch)</span></li>
+      <li><span class="dot"></span><span><strong>3. Workshop</strong>— Teams Recap + live transcription (no scribe needed)</span></li>
+      <li><span class="dot"></span><span><strong>4. Capture</strong>— Action items auto-extracted and assigned</span></li>
+      <li><span class="dot"></span><span><strong>5. Synthesis</strong>— AI drafts findings and recommendations</span></li>
+      <li><span class="dot"></span><span><strong>6. Deliverables</strong>— Plan delivered in 48 hours instead of two weeks</span></li>
+    </ul>
+      </div>
+      <div>
+    <div class="stat-grid reveal d3" style="grid-template-columns:1fr;">
+      <div class="stat-card">
+        <div class="stat-number">15–25h</div>
+        <div class="stat-label">Traditional workshop cycle</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4–6h</div>
+        <div class="stat-label">AI-first workshop cycle</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">48h</div>
+        <div class="stat-label">Plan in customer's hands</div>
+      </div>
+    </div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Tools: M365 Copilot · Copilot Studio · Azure MCP · ADO MCP · Teams Recap</p>
+  </div>
+</section>
+
+<section class="slide" id="agentic-modernization" data-label="Agentic Modernization" data-notes="DO: Walk the five steps. Slow down on Execute — that's where the biggest speedup lives. SAY: Agentic Modernization is the second path. Discover — Azure Migrate with AI-powered assessment auto-classifies workloads instead of a two-week manual inventory. Plan — AI drafts the TCO model, Azure Copilot gives architecture guidance for target state. Execute is the heavy lifter. GitHub Copilot does the refactoring. Modernize Copilot handles framework upgrades. Cloud Accelerate Factory is there when you need Microsoft engineering in the room. Validate and Operate close the loop. The whole path is partner-led. Microsoft backs you on the hard parts.">
+  <div class="slide-inner">
+    <div class="part-label reveal">PATH 2</div>
+    <h2 class="reveal d1">Agentic <span class="accent">Modernization</span></h2>
+    <p class="lead reveal d2">App and data migration, accelerated end to end. You lead. Microsoft's Cloud Accelerate Factory backs you.</p>
+    <div class="process-flow reveal d3">
+      <div class="process-step">Discover</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Plan</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Execute</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Validate</div>
+      <div class="process-arrow">&rarr;</div>
+      <div class="process-step">Operate</div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Azure Migrate · GitHub Copilot · Modernize Copilot · Cloud Accelerate Factory · Azure AI Foundry</p>
+  </div>
+</section>
+
+<section class="slide" id="ai-path-production" data-label="AI Path to Production" data-notes="DO: Flag the rebrand explicitly — this is the single biggest naming change this year. Most customers haven't caught up. SAY: AI Path to Production is the meta-play. Your customer wants to ship an AI product. You ship it using the same AI tools you're teaching them. Four stages. Readiness, Foundations, Build, Govern. The naming update you need to know — Azure AI Foundry became Microsoft Foundry late last year. Foundry Agent Service is the primitive you will spend the most time in. Prompt agents are generally available. Workflow agents and hosted agents are in public preview, which is the right time to start building pilots. Agent manifests, agent identity, on-behalf-of authentication, built-in MCP support — this is the production substrate.">
+  <div class="slide-inner">
+    <div class="part-label reveal">PATH 3</div>
+    <h2 class="reveal d1"><span class="accent">AI Path</span> to Production</h2>
+    <p class="lead reveal d2">The meta-play. Use AI tools to deliver AI projects. Grounded in Microsoft Foundry.</p>
+    <div class="cols reveal d2">
+      <div>
+    <ul class="feature-list reveal d3">
+      <li><span class="dot"></span><span><strong>1. Readiness</strong>— AI maturity assessment, use-case prioritisation, data readiness audit</span></li>
+      <li><span class="dot"></span><span><strong>2. Foundations</strong>— AI Landing Zone, governance, Responsible AI framework, security baseline</span></li>
+      <li><span class="dot"></span><span><strong>3. Build</strong>— Microsoft Foundry Agent Service. Prompt agents, workflow agents, hosted agents, manifests</span></li>
+      <li><span class="dot"></span><span><strong>4. Govern</strong>— Production monitoring, cost management, agent identity / OBO, evaluation in CI</span></li>
+    </ul>
+      </div>
+      <div>
+    <div class="card-grid reveal d3" style="grid-template-columns:repeat(1,1fr)">
+      <div class="info-card">
+        <div class="icon">🧠</div>
+        <div class="card-title">Prompt Agents</div>
+        <div class="card-text">GA. Reasoning + built-in tools (web search, file search, memory, MCP).</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">🔀</div>
+        <div class="card-title">Workflow Agents</div>
+        <div class="card-text">Preview. Deterministic multi-step agent orchestration.</div>
+      </div>
+      <div class="info-card">
+        <div class="icon">🛰️</div>
+        <div class="card-title">Hosted Agents</div>
+        <div class="card-text">Preview. Managed compute, private networking, agent identity.</div>
+      </div>
+    </div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Microsoft Foundry — learn.microsoft.com/azure/foundry · rebranded from Azure AI Foundry in late 2025</p>
+  </div>
+</section>
+
+<section class="slide" id="pro-code-mcp" data-label="Pro-Code + MCP" data-notes="DO: Single out Microsoft Learn MCP by name. It's free and most people don't know it exists yet. SAY: Pro-Code is about adopting GitHub Copilot across the full SDLC — not a productivity tool on a developer's laptop, but a team capability. The MCP stack is the unlock. Three tiers. The anchors you always have on: Copilot plus Azure MCP. The catalog tier — ADO MCP, Fabric MCP, SQL, Power BI Modeling. Microsoft Learn MCP is the one to try first; it's free, no auth, and it lets Copilot search the Learn docs live. The third tier is where your partner IP goes. Your delivery methodology, your IP, your customer data contracts — wrapped in a custom MCP server that only your consultants can call.">
+  <div class="slide-inner">
+    <div class="part-label reveal">PATH 4</div>
+    <h2 class="reveal d1">Pro-Code Development with <span class="accent">GitHub Copilot</span> & MCP</h2>
+    <p class="lead reveal d2">The MCP catalog is the unlock. Three tiers. Your IP lives in the third one.</p>
+    <div class="block-grid reveal d3">
+      <div class="block-card">
+        <div class="block-icon">⚓</div>
+        <div class="block-title">Anchor tier</div>
+        <div class="block-desc">GitHub Copilot (agent mode, CLI, VS Code) plus Azure MCP — the unified Azure server at mcp.ai.azure.com. Always on.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">📚</div>
+        <div class="block-title">Catalog tier</div>
+        <div class="block-desc">The Microsoft MCP catalog: ADO MCP (preview), Fabric MCP (preview), SQL, Microsoft Learn (free, no auth), Power BI Modeling, Data Factory, Clarity.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🔐</div>
+        <div class="block-title">Custom IP tier</div>
+        <div class="block-desc">Your own MCP servers. This is where partner differentiation lives — your methodology, your templates, your customer data contracts.</div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Microsoft Learn MCP is the sleeper hit — free, no auth, search Learn docs from your terminal.</p>
+  </div>
+</section>
+
+<section class="slide slide-alt" id="toolbox-agents" data-label="Your Agent Toolbox" data-notes="DO: Slow down. This is the signature visual of the deck. Let the audience read the grid for five seconds before you narrate. Point at one agent that matches your own consulting focus. SAY: This is the slide I want you to photograph. Six agent patterns, one per role your consultancy already has. Every one can be built this quarter with the public Microsoft stack — no custom training, no special access, no preview waitlist. Two to four weeks of engineering per agent. The partners who build the first two or three are going to be very hard to out-pitch in twelve months.">
+  <div class="slide-inner">
+    <div class="part-label reveal">ACT FIVE · SYNTHESIS</div>
+    <h2 class="reveal d1">Build your AI delivery <span class="accent">toolbox</span></h2>
+    <p class="lead reveal d2">Six agent patterns you can build with public tools today. No custom model training. Two to four weeks each.</p>
+    <div class="block-grid reveal d3 block-grid-hero">
+      <div class="block-card" style="border-left:3px solid var(--teal);">
+        <div class="block-icon">🏔️</div>
+        <div class="block-title">Solution Architect</div>
+        <div class="block-desc">Sizing, reference designs, architecture drafts. Tools: Azure MCP, Architecture Center, Foundry patterns.</div>
+      </div>
+      <div class="block-card" style="border-left:3px solid var(--coral);">
+        <div class="block-icon">🧭</div>
+        <div class="block-title">Pursuit Lead</div>
+        <div class="block-desc">Proposal drafting, competitive analysis, customer context. Tools: M365 Copilot, PMX, MSX, SharePoint.</div>
+      </div>
+      <div class="block-card" style="border-left:3px solid var(--burgundy);">
+        <div class="block-icon">📊</div>
+        <div class="block-title">Delivery Manager</div>
+        <div class="block-desc">Sprint health, risk flags, weekly status. Tools: ADO MCP, Power BI MCP, WorkIQ.</div>
+      </div>
+      <div class="block-card" style="border-left:3px solid var(--teal);">
+        <div class="block-icon">🚢</div>
+        <div class="block-title">Migration Lead</div>
+        <div class="block-desc">Progress tracking, blocker routing, workstream sync. Tools: Azure Migrate, ADO MCP, GitHub MCP.</div>
+      </div>
+      <div class="block-card" style="border-left:3px solid var(--coral);">
+        <div class="block-icon">📖</div>
+        <div class="block-title">Knowledge Engineer</div>
+        <div class="block-desc">Past deliverables, templates, lessons learned. Tools: SharePoint, Azure AI Search, Microsoft Learn MCP.</div>
+      </div>
+      <div class="block-card" style="border-left:3px solid var(--burgundy);">
+        <div class="block-icon">📐</div>
+        <div class="block-title">Commercial Analyst</div>
+        <div class="block-desc">TCO drafts, rate cards, estimate assembly. Tools: Power BI Modeling MCP, SQL MCP, Copilot Studio.</div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Built with the public Microsoft MCP catalog. 2–4 weeks of partner engineering per agent. No model training required.</p>
+  </div>
+</section>
+
+<section class="slide" id="monday-morning" data-label="Monday Morning" data-notes="DO: Direct eye contact with the group. Ask implicitly — which tier are YOU? SAY: Concrete actions. Three tiers. Just Starting — turn on Teams transcription today, it's free and almost nobody has it on by default. Get M365 Copilot in front of your delivery team. Pick one workshop to run the AI-first way this month. Have the Basics — the single highest-return move is adopting the Microsoft MCP catalog across your delivery team. Ship your first engagement end-to-end on the new stack. Ready to Scale — your IP becomes MCP servers. Your methodology becomes prompt libraries. Your productivity gains become pipeline.">
+  <div class="slide-inner">
+    <div class="part-label reveal">ACT SIX · ACTION</div>
+    <h2 class="reveal d1">What to do <span class="accent">Monday</span> morning</h2>
+    <p class="lead reveal d2">Three tiers. Pick the one that matches where your delivery team is today.</p>
+    <div class="block-grid reveal d3">
+      <div class="block-card">
+        <div class="block-icon">🌱</div>
+        <div class="block-title">Just Starting</div>
+        <div class="block-desc">Turn on Teams transcription for every client meeting. Activate M365 Copilot for your delivery team. Start a GitHub Copilot trial. Run one Workshop-to-Plan this month.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🚶</div>
+        <div class="block-title">Have the Basics</div>
+        <div class="block-desc">Adopt the Microsoft MCP catalog across your delivery team. Ship your first AI-first engagement. Build your first Copilot Studio agent. Stand up a prompt library for your top five plays.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🏃</div>
+        <div class="block-title">Ready to Scale</div>
+        <div class="block-desc">Build custom MCP servers for your IP. Publish prompt libraries by practice area. Wire AI into your methodology, not just your tooling. Measure and publish the productivity gains.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="setup-in-one-prompt" data-label="One prompt setup" data-notes="DO: Pause after reading the heading. Let the blocks speak for five seconds. Then pick one — 'Read a docs URL' is my favourite — and narrate why that is the real unlock. No engineer needed to translate docs into config. SAY: What you are about to feel in three minutes is this. You paste one prompt. Copilot CLI does four things in a row that, yesterday, would have been your job. It picks where to put code. It reads documentation. It edits configuration. It reboots its own tool chain. None of this needs a preview waitlist. It is the pattern. Every exercise your consultants do for the next year starts to look like this. That is the bet.">
+  <div class="slide-inner">
+    <div class="part-label reveal">ACT SEVEN · HANDS-ON</div>
+    <h2 class="reveal d1">One prompt. Copilot did <span class="accent">all of this</span>.</h2>
+    <p class="lead reveal d2">Paste a single prompt into Copilot CLI. It fetches pages it has never seen, downloads code, edits your config, and reboots itself. You never opened a file.</p>
+    <div class="block-grid reveal d3">
+      <div class="block-card">
+        <div class="block-icon">📥</div>
+        <div class="block-title">Downloaded the exercise</div>
+        <div class="block-desc">Picked a sensible folder. Cloned the repo. Moved into it. You never typed git clone.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🌐</div>
+        <div class="block-title">Read a docs URL</div>
+        <div class="block-desc">Fetched the Microsoft Learn MCP setup page and figured out the right config by reading prose. No cryptic JSON you had to decode.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">📝</div>
+        <div class="block-title">Edited your config</div>
+        <div class="block-desc">Wrote the correct JSON into ~/.copilot/mcp-config.json alongside whatever was already there. You never opened the file.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🔁</div>
+        <div class="block-title">Reloaded itself</div>
+        <div class="block-desc">Restarted its MCP stack. Verified the new tools are live. Told you how to confirm. No 'now restart' step you had to remember.</div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Delivery stops being clicks. Delivery starts being instructions.</p>
+  </div>
+</section>
+
+<section class="slide slide-alt" id="exercise-launch" data-label="Now it's your turn" data-notes="DO: Hand out the repo URL. Read the scenario line out loud. Do not walk them through the setup — it is in the README. Walk the room while they work. SAY: Twenty minutes. You are the solution architect. Nordwind Aerospace just handed you a brief they need for their board in ten days. Open the exercise README. Read the meeting notes. Then prompt Copilot to install the Microsoft Learn MCP — that is the move I want you to feel. After that, draft the brief. Grounded. Specific. Cited. Every instruction you need is in the README. I'm walking the room. Go.">
+  <div class="slide-inner">
+    <div class="part-label reveal">ACT SEVEN · HANDS-ON</div>
+    <h2 class="reveal d1">Now it's <span class="accent">your turn</span></h2>
+    <p class="lead reveal d2">Twenty minutes. One client. One tool. A brief worth sending.</p>
+    <div class="block-grid reveal d3">
+      <div class="block-card">
+        <div class="block-icon">🛰️</div>
+        <div class="block-title">The client</div>
+        <div class="block-desc">Nordwind Aerospace — small-sat operator, just landed a reinsurance contract. Their CTO wants a one-pager: "Can we just use ChatGPT, or do we need something more?"</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🧭</div>
+        <div class="block-title">The tool</div>
+        <div class="block-desc">Copilot CLI + Microsoft Learn MCP. You'll prompt Copilot to install the MCP itself, then use grounded Microsoft guidance to draft the brief. Not vibes. Cited.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">📝</div>
+        <div class="block-title">The deliverable</div>
+        <div class="block-desc">brief.md — one page, honest, specific to Nordwind. Azure Landing Zone for AI + Microsoft Agent Framework as the backbone. Three next steps.</div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Tiered setup — fresh account, baseline, stretch, super-stretch. Nobody sits out.</p>
+  </div>
+</section>
+
+<section class="slide slide-alt" id="trust-boundary"data-label="Trust Boundary" data-notes="DO: Final slide. Slow right down. Land on the footer. Then thank the room and open for questions. SAY: Last slide. I moved this one out of the appendix because if I skipped over it, you would rightly stop me. Everything you saw today sits inside Microsoft's enterprise trust boundary. Your customer's data does not leave it. No model trains on it. Entra handles identity. Foundry handles content filtering and evaluation. The six Responsible AI principles are platform defaults, not a checklist you bolt on at the end. That is why an AI-first partner delivery practice is defensible. It is also why your customer's CISO will let you ship. Thank you. Let's talk.">
+  <div class="slide-inner">
+    <div class="part-label reveal">THE CLOSE</div>
+    <h2 class="reveal d1">The <span class="accent">Trust</span> Boundary</h2>
+    <p class="lead reveal d2">Why this works at enterprise scale. Every tool in this deck inherits Microsoft's enterprise trust framework.</p>
+    <div class="block-grid reveal d3">
+      <div class="block-card">
+        <div class="block-icon">🔒</div>
+        <div class="block-title">Data Security</div>
+        <div class="block-desc">Customer data stays inside the Microsoft trust boundary. No training on your customer data. Entra ID authentication. SOC 2, ISO 27001, GDPR.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">✅</div>
+        <div class="block-title">AI Quality</div>
+        <div class="block-desc">Production-grade guardrails. Content filtering, grounding in verified data, evaluation frameworks in CI, continuous monitoring.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">⚖️</div>
+        <div class="block-title">Responsible AI</div>
+        <div class="block-desc">Microsoft's six Responsible AI principles. Fairness, reliability, privacy, inclusiveness, transparency, accountability — built into the platform.</div>
+      </div>
+    </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Johan Wallquist · Partner Solution Architect, Microsoft · aka.ms/caip-frontier</p>
+  </div>
+</section>
+
+</div><!-- end #deck -->
+
+<!-- Presenter notes view (same file, ?presenter=notes) -->
+<div id="presenter-view">
+  <div class="pv-header">
+    <div class="pv-label" id="pvLabel">Waiting for presentation...</div>
+    <div class="pv-counter"><span id="pvNum">-</span> / <span id="pvTotal">-</span></div>
+  </div>
+  <div class="pv-main">
+    <div class="pv-thumb-panel">
+      <div class="pv-thumb-frame">
+        <iframe id="pvThumb"></iframe>
+      </div>
+    </div>
+    <div class="pv-notes-panel">
+      <div id="pvDo" class="pv-notes-do" style="display:none;"></div>
+      <div id="pvSay" class="pv-notes-say">
+        <span class="pv-waiting">Connecting to presentation&hellip;</span>
+      </div>
+    </div>
+  </div>
+  <div class="pv-footer">
+    <span>Notes sync as you navigate</span>
+    <span></span>
+  </div>
+</div>
+
+<script>
+/* ── Mode detection ──
+   ?presenter=notes → dark presenter UI (this window)
+   ?presenter=thumb → silent thumbnail (used as iframe inside presenter)
+   (no param)       → normal deck
+*/
+const mode = (new URLSearchParams(location.search).get('presenter') || 'deck');
+if (mode === 'notes') document.body.classList.add('mode-presenter');
+if (mode === 'thumb') document.body.classList.add('mode-thumb');
+
+/* ── Presenter notes mode ── */
+if (mode === 'notes') {
+  const pvThumb = document.getElementById('pvThumb');
+  const pvLabel = document.getElementById('pvLabel');
+  const pvNum = document.getElementById('pvNum');
+  const pvTotal = document.getElementById('pvTotal');
+  const pvDo = document.getElementById('pvDo');
+  const pvSay = document.getElementById('pvSay');
+  pvThumb.src = location.pathname + '?presenter=thumb';
+  let thumbReady = false;
+  let lastIndex = -1;
+  pvThumb.onload = () => { thumbReady = true; };
+
+  const channel = new BroadcastChannel('presenter-sync');
+  function parseNotes(raw) {
+    let doText = '', sayText = raw;
+    const doMatch = raw.match(/^DO:\s*(.*?)\s*SAY:\s*/i);
+    if (doMatch) { doText = doMatch[1].trim(); sayText = raw.substring(doMatch[0].length).trim(); }
+    else { const sayMatch = raw.match(/^SAY:\s*/i); if (sayMatch) sayText = raw.substring(sayMatch[0].length).trim(); }
+    return { doText, sayText };
+  }
+  channel.onmessage = (e) => {
+    if (e.data.type !== 'slide-change') return;
+    const { index, total, label, notes } = e.data;
+    if (index === lastIndex) return;
+    lastIndex = index;
+    pvLabel.textContent = label;
+    pvNum.textContent = index + 1;
+    pvTotal.textContent = total;
+    if (thumbReady) pvThumb.contentWindow.postMessage({ type: 'scroll-to-slide', index }, '*');
+    const { doText, sayText } = parseNotes(notes || '');
+    pvSay.style.opacity = '0'; pvDo.style.opacity = '0';
+    setTimeout(() => {
+      if (doText) { pvDo.textContent = doText; pvDo.style.display = 'block'; pvDo.style.opacity = '1'; }
+      else pvDo.style.display = 'none';
+      pvSay.textContent = sayText || '(No notes for this slide)';
+      pvSay.style.opacity = '1';
+    }, 150);
+  };
+  channel.postMessage({ type: 'request-current' });
+}
+/* ── Deck modes (deck + thumb) share the navigation runtime ── */
+else {
+const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')],progress=document.getElementById('progress'),counter=document.getElementById('counter'),nav=document.getElementById('nav'),total=slides.length;
+
+slides.forEach((s,i)=>{
+  const d=document.createElement('button');
+  d.className='nav-dot'+(i===0?' active':'');
+  d.dataset.label=s.dataset.label||`Slide ${i+1}`;
+  d.addEventListener('click',()=>slides[i].scrollIntoView({behavior:'smooth'}));
+  nav.appendChild(d);
+});
+const dots=[...document.querySelectorAll('.nav-dot')];
+
+const revealObs=new IntersectionObserver(e=>{
+  e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');});
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+
+let activeIndex=0;
+let broadcastSlide=function(){};
+const slideObs=new IntersectionObserver(e=>{
+  e.forEach(el=>{
+    if(el.isIntersecting&&el.intersectionRatio>.5){
+      const idx=slides.indexOf(el.target);
+      if(idx!==-1){
+        activeIndex=idx;
+        broadcastSlide(idx);
+        dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
+        counter.innerHTML=`<span>${idx+1}</span> / ${total}`;
+        progress.style.width=`${((idx+1)/total)*100}%`;
+        const headerLink=document.getElementById('header-link');
+        if(headerLink) headerLink.classList.toggle('visible',idx>0);
+      }
+    }
+  });
+},{threshold:.5});
+slides.forEach(s=>slideObs.observe(s));
+
+// Keyboard navigation
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){
+    e.preventDefault();
+    slides[Math.min(activeIndex+1,total-1)].scrollIntoView({behavior:'smooth'});
+  }else if(e.key==='ArrowUp'||e.key==='PageUp'){
+    e.preventDefault();
+    slides[Math.max(activeIndex-1,0)].scrollIntoView({behavior:'smooth'});
+  }else if(e.key==='Home'){e.preventDefault();slides[0].scrollIntoView({behavior:'smooth'});}
+  else if(e.key==='End'){e.preventDefault();slides[total-1].scrollIntoView({behavior:'smooth'});}
+});
+
+// ── Deck mode only: broadcast + P-to-open-presenter ──
+if (mode === 'deck') {
+  const presenterChannel = new BroadcastChannel('presenter-sync');
+  broadcastSlide = function(idx) {
+    const slide = slides[idx];
+    const notes = slide ? slide.getAttribute('data-notes') || '' : '';
+    const label = slide ? slide.getAttribute('data-label') || ('Slide '+(idx+1)) : '';
+    presenterChannel.postMessage({ type:'slide-change', index:idx, total, label, notes });
+  };
+  document.addEventListener('keydown', e => {
+    if ((e.key === 'p' || e.key === 'P') && !e.ctrlKey && !e.metaKey) {
+      window.open(location.pathname + '?presenter=notes', 'presenter', 'width=1100,height=600');
+      setTimeout(() => broadcastSlide(activeIndex), 500);
+    }
+  });
+  presenterChannel.onmessage = (e) => {
+    if (e.data.type === 'request-current') broadcastSlide(activeIndex);
+  };
+}
+// ── Thumbnail mode: respond to scroll commands from the presenter iframe parent ──
+else if (mode === 'thumb') {
+  window.addEventListener('message', (e) => {
+    if (e.data && e.data.type === 'scroll-to-slide' && typeof e.data.index === 'number') {
+      if (slides[e.data.index]) slides[e.data.index].scrollIntoView({ behavior: 'instant' });
+    }
+  });
+}
+}
+</script>
+</body>
+</html>
