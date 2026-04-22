@@ -7,15 +7,11 @@ Published via GitHub Pages — reviewers get a stable link, push updates as they
 ## Update workflow
 
 ```powershell
-# from this repo
-Copy-Item ..\frontier-consultancy\presentation\storyboard.html .\storyboard.html -Force
-Copy-Item ..\frontier-consultancy\presentation\index.html       .\presenter.html   -Force
-git add -A
-git commit -m "update: <what changed>"
-git push
+cd C:\Users\jwallquist\projects\frontier-storyboard-share
+.\sync.ps1 "tightened partner-voice quotes"
 ```
 
-Reviewers hard-refresh (Ctrl+F5). Pages typically updates within ~1 minute.
+`sync.ps1` copies the latest `storyboard.html` + `index.html` from `..\frontier-consultancy\presentation\`, commits, and pushes. Reviewers hard-refresh (Ctrl+F5) — Pages typically updates within ~1 minute.
 
 ## Files
 
