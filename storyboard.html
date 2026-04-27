@@ -696,10 +696,10 @@
     <div class='slide-panel'>
       <div class='sn'>Slide 9</div>
       <h2>Delivery Execution — where speed compounds</h2>
-      <h4>Spec to operate. GitHub Copilot agent mode + MCP. Spec Kit feeds it upstream, Cowork runs the admin work alongside — 30–50% gains on routine build tasks stop being a slide and start being real.</h4>
+      <h4>Spec to operate. GitHub Copilot agent mode + MCP. Spec Kit feeds it upstream, Cowork runs the admin work alongside — 30–50% gains on the routine build tasks (boilerplate, tests, infra scaffolding) stop being a slide and start being real.</h4>
       <ul>
         <li><strong>Spec → Build:</strong> GitHub Spec Kit. Requirements become structured plans agent mode can execute against. The on-ramp from SOW to code.</li>
-        <li><strong>Build:</strong> GitHub Copilot agent mode writes code, runs tests, opens PRs. Azure MCP gives it live cloud context. 30–50% faster on routine build tasks — boilerplate, tests, infra scaffolding.</li>
+        <li><strong>Build:</strong> GitHub Copilot agent mode drafts code, runs tests, opens PRs for review. Azure MCP gives it live cloud context. 30–50% faster on routine build tasks — boilerplate, tests, infra scaffolding.</li>
         <li><strong>Test / QA:</strong> Copilot generates unit tests. Azure Load Testing scales perf runs. GenAI Ops handles evaluation for AI workloads.</li>
         <li><strong>Deploy:</strong> GitHub Actions with Copilot assist. Deployment drift caught before it reaches production.</li>
         <li><strong>Operate:</strong> Azure Copilot for monitoring. Incidents summarised, root causes proposed, runbooks generated on the fly.</li>
@@ -712,7 +712,7 @@
         <span class='energy energy-high' style='background: #ff6b35;'>high</span>
       </div>
       <p class='small'><strong>DO:</strong> Emphasise 'agent mode' — that's the 2026 shift. Not autocomplete any more. Point at Spec Kit on the left as the upstream on-ramp. Land on the Cowork strip at the bottom — that's the always-on layer most partners haven't seen yet.</p>
-      <p><strong>SAY:</strong> A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Upstream, <strong>GitHub Spec Kit</strong> turns requirements into structured plans the agent can execute against — the bridge from SOW to working code. Then agent mode writes the code, runs the tests, reads the errors, opens the pull request. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. That is the multiplier. Same developer, double the throughput. And alongside all of it, <strong>GitHub Copilot Cowork</strong> handles the repeating admin work — status updates, ticket triage, documentation nudges — without a person in the loop. Speed compounds because every phase hands cleaner context to the next, and the boring work doesn't sit on a consultant's desk any more.</p>
+      <p><strong>SAY:</strong> A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Upstream, <strong>GitHub Spec Kit</strong> turns requirements into structured plans the agent can execute against — the bridge from SOW to working code. Then agent mode drafts the code, runs the tests, reads the errors, opens a pull request for review. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. Same developer, materially more throughput on the routine build tasks — boilerplate, tests, infra scaffolding. The senior judgement still happens at code review and at the architecture decisions; the agent just stops being the bottleneck for everything around them. And alongside all of it, <strong>GitHub Copilot Cowork</strong> handles the repeating admin work — status roll-ups, ticket triage, documentation nudges — without a person in the loop. Speed compounds because every phase hands cleaner context to the next, and the boring work doesn't sit on a consultant's desk any more.</p>
     </div>
   </div>
   <div class='slide-row'>
@@ -772,7 +772,7 @@
       </div>
       <p class='small'><strong>DO:</strong> Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers before you start.</p>
       <p><strong>DO:</strong> Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is the differentiator (Henri #8).</p>
-      <p><strong>SAY:</strong> I need to set up a landing zone for a new customer project. Old world, two to four hours — and most of that isn't typing, it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep against your patterns, logs the ADO work item, and writes the handoff summary. The point isn't the speed — it's that the agent is grounded in what the customer told you, not in a prompt I made up.</p>
+      <p><strong>SAY:</strong> I need to set up a landing zone for a new customer project. Old world, two to four hours — and most of that isn't typing, it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep review-ready against your patterns, logs the ADO work item, and drafts the handoff summary. None of that is shipped without a senior pair of eyes — but the senior is reviewing, not typing. The point isn't the speed — it's that the agent is grounded in what the customer told you, not in a prompt I made up.</p>
     </div>
   </div>
   <div class='demo-card'>
@@ -812,7 +812,7 @@
         <tr><th>Moment</th><th>Message</th></tr>
         <tr><td>When you drag the transcript in</td><td>This is the move. Not a clever prompt — real customer context handed to the agent. Same context your consultants normally hold in their head.</td></tr>
         <tr><td>When the agent quotes back the customer's PCI / SAP / region requirements</td><td>The agent isn't making up architecture. It's reading what the customer actually said.</td></tr>
-        <tr><td>When Bicep renders</td><td>This would have been a two-to-four-hour task with a senior consultant. We're under a minute.</td></tr>
+        <tr><td>When Bicep renders</td><td>Old world, this would have been a two-to-four-hour task. We're at a review-ready draft in minutes — senior still reviews before anything ships.</td></tr>
         <tr><td>When the ADO work item appears</td><td>The work item is logged, linked, and ready for review. The consultant's next action is the review, not the assembly.</td></tr>
       </table>
     </div>
