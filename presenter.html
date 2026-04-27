@@ -711,18 +711,18 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
     <h2 class="reveal d1"><span class="accent">Copilot CLI</span> + MCP, grounded in customer context</h2>
     <p class="lead reveal d2">Drop in the customer recap. One prompt. The agent reads what they actually said, queries Azure, drafts Bicep, logs the work.</p>
     <div class="reveal d2" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 12px;border-radius:var(--radius-sm);text-transform:uppercase;margin-bottom:12px;">LIVE DEMO</div>
-    <div class="process-flow reveal d3">
-      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Drop in customer transcript</div>
-      <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Prompt the CLI</div>
-      <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Query Azure (Azure MCP)</div>
-      <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Generate Bicep</div>
-      <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Create ADO Work Item</div>
-      <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Summarise &amp; hand off</div>
+    <div class="process-flow reveal d3" style="flex-wrap:nowrap;font-size:12.5px;gap:0;">
+      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);padding:8px 12px;white-space:nowrap;">Drop in transcript</div>
+      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
+      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Prompt the CLI</div>
+      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
+      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Query Azure (MCP)</div>
+      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
+      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Generate Bicep</div>
+      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
+      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Create ADO work item</div>
+      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
+      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Hand off</div>
     </div>
     <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Transcript source in real engagements: Teams transcription, M365 Copilot meeting recap, or pasted notes. · If the demo fails: cut to the pre-recorded terminal capture and narrate.</p>
   </div>
@@ -932,28 +932,32 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="monday-morning" data-label="Monday Morning" data-notes="DO: Direct eye contact with the group. Ask implicitly — which tier are YOU? SAY: Concrete actions. Three tiers. Just Starting — turn on Teams transcription today, it's free and almost nobody has it on by default. Get M365 Copilot in front of your delivery team. Pick one workshop to run the AI-first way this month. Have the Basics — the single highest-return move is adopting the Microsoft MCP catalog across your delivery team. Ship your first engagement end-to-end on the new stack. Ready to Scale — your IP becomes MCP servers. Your methodology becomes prompt libraries. Your productivity gains become pipeline.">
+<section class="slide" id="monday-morning" data-label="Monday Morning" data-notes="DO: Direct eye contact with the group. Ask implicitly — which tier are YOU? Read the metric line under each card last — that's the answer to 'how do I prove this to my CFO?' (Jarrod #17). SAY: Concrete actions, by tier — and the numbers each tier should be measuring. Just Starting: turn on Teams transcription, get M365 Copilot in front of your delivery team, run one Workshop-to-Plan this month. Measure adoption — % meetings transcribed, weekly active Copilot users, workshop hours per engagement. If those numbers don't move, nothing else will. Have the Basics: ship your first AI-first engagement on the public Microsoft stack. Measure flow — time-to-first-PR, rework rate on AI-drafted artefacts, documentation freshness. These are the metrics your delivery managers can act on. Ready to Scale: your IP becomes MCP servers, your methodology becomes prompt libraries — and the numbers go to the CFO. Gross margin per engagement, billable utilisation, defect escape rate. If you can publish those quarter on quarter, you're not selling AI delivery — you're proving it.">
   <div class="slide-inner">
     <div class="part-label reveal">ACT SIX · ACTION</div>
     <h2 class="reveal d1">What to do <span class="accent">Monday</span> morning</h2>
-    <p class="lead reveal d2">Three tiers. Pick the one that matches where your delivery team is today.</p>
+    <p class="lead reveal d2">Three tiers. Pick the one that matches where your delivery team is today — and the metric line that proves you moved.</p>
     <div class="block-grid reveal d3">
       <div class="block-card">
         <div class="block-icon">🌱</div>
         <div class="block-title">Just Starting</div>
         <div class="block-desc">Turn on Teams transcription for every client meeting. Activate M365 Copilot for your delivery team. Start a GitHub Copilot trial. Run one Workshop-to-Plan this month.</div>
+        <div style="font-size:12.5px;color:var(--teal);font-weight:600;border-top:1px solid var(--border-light);padding-top:8px;margin-top:4px;line-height:1.45;"><span style="text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;color:var(--fg-muted);font-weight:700;">Measure (adoption)</span><br>% meetings transcribed · weekly active Copilot users · workshop hours per engagement</div>
       </div>
       <div class="block-card">
         <div class="block-icon">🚶</div>
         <div class="block-title">Have the Basics</div>
         <div class="block-desc">Adopt the Microsoft MCP catalog across your delivery team. Ship your first AI-first engagement. Build your first Copilot Studio agent. Stand up a prompt library for your top five plays.</div>
+        <div style="font-size:12.5px;color:var(--teal);font-weight:600;border-top:1px solid var(--border-light);padding-top:8px;margin-top:4px;line-height:1.45;"><span style="text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;color:var(--fg-muted);font-weight:700;">Measure (flow)</span><br>time-to-first-PR · rework rate on AI-drafted artefacts · documentation freshness</div>
       </div>
       <div class="block-card">
         <div class="block-icon">🏃</div>
         <div class="block-title">Ready to Scale</div>
         <div class="block-desc">Build custom MCP servers for your IP. Publish prompt libraries by practice area. Wire AI into your methodology, not just your tooling. Measure and publish the productivity gains.</div>
+        <div style="font-size:12.5px;color:var(--teal);font-weight:600;border-top:1px solid var(--border-light);padding-top:8px;margin-top:4px;line-height:1.45;"><span style="text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;color:var(--fg-muted);font-weight:700;">Measure (economics)</span><br>gross margin per engagement · billable utilisation · defect escape rate</div>
       </div>
     </div>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:24px;font-style:italic">If the thesis is economic, the metrics have to be too. Pick three from your tier and report them quarterly.</p>
   </div>
 </section>
 
