@@ -510,7 +510,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="hook-stats" data-label="Where Margin Hides" data-notes="DO: Optional opener: run a 2-min Menti poll — &quot;Where does your team spend the most non-billable time?&quot; Documentation / research / scheduling / manual tasks. Reveal results, then move to the three stats. SAY: Sixty to eighty hours per engagement on documentation and admin. That is a full consultant-week, buried inside every project, before you bill a single dollar of AI work. Fifteen percent of consultant time never reaches an invoice. And here is the part that has changed: the same reports now show twenty-five to forty percent of that overhead is reducible with AI tooling that is already public. You already own the licences. The question is whether your delivery process reflects it yet.">
+<section class="slide" id="hook-stats" data-label="Where Margin Hides" data-notes="DO: Optional opener: run a 2-min Menti poll — &quot;Where does your team spend the most non-billable time?&quot; Documentation / research / scheduling / manual tasks. Reveal results, then move to the three stats. Land on the Fellowmind callout — name the partner, name the agent, point at the link. That is the proof. SAY: Sixty to eighty hours per engagement on documentation and admin. That is a full consultant-week, buried inside every project, before you bill a single dollar of AI work. Fifteen percent of consultant time never reaches an invoice. And here is the part that has changed: the same reports now show twenty-five to forty percent of that overhead is reducible with AI tooling that is already public. You already own the licences. The question is whether your delivery process reflects it yet. And if you want a public proof point — Fellowmind built Hive AI, an agentic platform whose flagship agent matches consultant CVs to RFP requirements. Built by a consultancy, productised for consultancies. That is the customer-zero pattern this session is about — spot the friction in your own delivery, build the agent, and the agent becomes part of what you sell.">
   <div class="slide-inner">
     <div class="part-label reveal">THE HOOK</div>
     <h2 class="reveal d1">Reclaim <span class="accent">25%</span> of your team's time</h2>
@@ -529,7 +529,10 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
         <div class="stat-label">Overhead reduction possible with AI (GitHub Octoverse)</div>
       </div>
     </div>
-    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">[TODO: insert real partner anecdote] — e.g. "Nordic CAIP partner ran their first AI-first Workshop-to-Plan in Q3. 22h → 5h. Won the follow-on 8-week engagement."</p>
+    <div class="reveal d4" style="margin-top:28px;padding:14px 20px;background:rgba(45,110,109,.06);border-left:3px solid var(--teal);border-radius:6px;font-size:13.5px;line-height:1.55">
+      <strong style="color:var(--teal);text-transform:uppercase;letter-spacing:.06em;font-size:11px">Public example — partner as customer zero</strong><br>
+      <strong>Fellowmind launched Hive AI</strong>, an agentic platform for delivery. The flagship agent matches consultant CVs to RFP requirements — a problem every consultancy has. Built by a consultancy, productised for consultancies. <span style="color:var(--fg-muted)">(Sopra and others have built similar.)</span> <a href="https://www.fellowmind.com/news/agentic-services-portfolio/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline">Hive AI portfolio →</a>
+    </div>
   </div>
 </section>
 
@@ -635,32 +638,41 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="delivery-execution" data-label="Delivery Execution" data-notes="DO: Emphasise 'agent mode' — that's the 2026 shift. Not autocomplete any more. SAY: A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Agent mode means Copilot writes the code, runs the tests, reads the errors, and opens the pull request. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. That is the multiplier. Same developer, double the throughput. And that carries through test, deploy, operate. The speed compounds because every phase hands cleaner context to the next. Worth name-dropping if anyone asks about the upstream end: GitHub Spec Kit is the spec-driven on-ramp — turns requirements into structured plans agent mode can execute against.">
+<section class="slide" id="delivery-execution" data-label="Delivery Execution" data-notes="DO: Emphasise 'agent mode' — that's the 2026 shift. Not autocomplete any more. Point at Spec Kit on the left as the upstream on-ramp. Land on the Cowork strip at the bottom — that's the always-on layer most partners haven't seen yet. SAY: A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Upstream, GitHub Spec Kit turns requirements into structured plans the agent can execute against — the bridge from SOW to working code. Then agent mode writes the code, runs the tests, reads the errors, opens the pull request. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. That is the multiplier. Same developer, double the throughput. And alongside all of it, GitHub Copilot Cowork handles the repeating admin work — status updates, ticket triage, documentation nudges — without a person in the loop. Speed compounds because every phase hands cleaner context to the next, and the boring work doesn't sit on a consultant's desk any more.">
   <div class="slide-inner">
     <div class="part-label reveal">PHASE 2 · BUILD → OPERATE</div>
     <h2 class="reveal d1">Delivery Execution — where <span class="accent">speed compounds</span></h2>
-    <p class="lead reveal d2">Build, test, deploy, operate. GitHub Copilot in agent mode — plus MCP — is where 30–50% gains on routine build tasks stop being a slide and start being real.</p>
-    <div class="card-grid reveal d3" style="grid-template-columns:repeat(4,1fr)">
-      <div class="info-card">
+    <p class="lead reveal d2">Spec to operate. GitHub Copilot agent mode + MCP. Spec Kit feeds it upstream, Cowork runs the admin work alongside — 30–50% gains on routine build tasks stop being a slide and start being real.</p>
+    <div class="card-grid reveal d3" style="grid-template-columns:repeat(5,1fr);gap:14px">
+      <div class="info-card" style="padding:18px 14px">
+        <div class="icon">📐</div>
+        <div class="card-title">Spec → Build</div>
+        <div class="card-text" style="font-size:13.5px">GitHub Spec Kit. Requirements become structured plans agent mode can execute against. The on-ramp from SOW to code.</div>
+      </div>
+      <div class="info-card" style="padding:18px 14px">
         <div class="icon">⚡</div>
         <div class="card-title">Build</div>
-        <div class="card-text">GitHub Copilot agent mode writes code, runs tests, opens PRs. Azure MCP gives it live cloud context. 30–50% faster on routine build tasks — boilerplate, tests, infra scaffolding.</div>
+        <div class="card-text" style="font-size:13.5px">Copilot agent mode writes code, runs tests, opens PRs. Azure MCP for live cloud context. 30–50% faster on routine work.</div>
       </div>
-      <div class="info-card">
+      <div class="info-card" style="padding:18px 14px">
         <div class="icon">🧪</div>
         <div class="card-title">Test / QA</div>
-        <div class="card-text">Copilot generates unit tests. Azure Load Testing scales perf runs. GenAI Ops handles evaluation for AI workloads.</div>
+        <div class="card-text" style="font-size:13.5px">Copilot generates unit tests. Azure Load Testing scales perf runs. GenAI Ops evaluates AI workloads.</div>
       </div>
-      <div class="info-card">
+      <div class="info-card" style="padding:18px 14px">
         <div class="icon">🚀</div>
         <div class="card-title">Deploy</div>
-        <div class="card-text">GitHub Actions with Copilot assist. Deployment drift caught before it reaches production.</div>
+        <div class="card-text" style="font-size:13.5px">GitHub Actions with Copilot assist. Deployment drift caught before it reaches production.</div>
       </div>
-      <div class="info-card">
+      <div class="info-card" style="padding:18px 14px">
         <div class="icon">📈</div>
         <div class="card-title">Operate</div>
-        <div class="card-text">Azure Copilot for monitoring. Incidents summarised, root causes proposed, runbooks generated on the fly.</div>
+        <div class="card-text" style="font-size:13.5px">Azure Copilot for monitoring. Incidents summarised, root causes proposed, runbooks on the fly.</div>
       </div>
+    </div>
+    <div class="reveal d4" style="margin-top:18px;padding:14px 20px;background:rgba(45,110,109,.08);border-left:3px solid var(--teal);border-radius:6px;font-size:13.5px;line-height:1.5">
+      <strong style="color:var(--teal);text-transform:uppercase;letter-spacing:.06em;font-size:11px">Always on, alongside the lifecycle</strong><br>
+      <strong>GitHub Copilot Cowork</strong> — flexible automation for repeating admin work that doesn't belong on a consultant's desk: status roll-ups, ticket triage, documentation nudges, recurring report generation. The lifecycle keeps moving while Cowork handles the noise.
     </div>
   </div>
 </section>
