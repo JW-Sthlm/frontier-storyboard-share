@@ -86,6 +86,29 @@ body{
   transition:width .5s var(--ease-out);
 }
 
+/* ── Chapter bar (top, horizontal) ── */
+#chapters{
+  position:fixed;top:14px;left:50%;transform:translateX(-50%);
+  display:flex;gap:2px;z-index:100;
+  background:var(--bg-white);
+  border:1px solid var(--border);border-radius:var(--radius-pill);
+  padding:4px 5px;box-shadow:var(--shadow-md);
+  font-family:var(--font-body);
+}
+.chapter-pill{
+  font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  font-weight:600;color:var(--fg-muted);
+  padding:7px 13px;border-radius:var(--radius-pill);
+  cursor:pointer;background:transparent;border:none;
+  transition:all .25s var(--ease-out);
+  white-space:nowrap;font-family:inherit;
+}
+.chapter-pill:hover{color:var(--fg);background:var(--bg-elevated)}
+.chapter-pill.active{
+  background:var(--teal);color:#fff;
+}
+.chapter-pill.active:hover{background:var(--teal-hover)}
+
 /* ── Nav dots ── */
 #nav{
   position:fixed;right:24px;top:50%;transform:translateY(-50%);
@@ -109,6 +132,7 @@ body{
   background:var(--teal);border-color:var(--teal);
   transform:scale(1.4);
 }
+.nav-dot.chapter-start{margin-top:10px}
 
 /* ── Counter ── */
 #counter{
@@ -333,11 +357,12 @@ h2 .coral{color:var(--coral)}
   .block-grid{grid-template-columns:1fr}
   .ladder{max-width:100%}
   #nav{display:none}
+  #chapters{display:none}
 }
 /* ── Presenter mode (inline) ── */
 #presenter-view{display:none}
 body.mode-presenter{background:#111;color:#e8e8e8;overflow:hidden}
-body.mode-presenter #deck,body.mode-presenter #nav,body.mode-presenter #counter,body.mode-presenter #keys,body.mode-presenter #progress,body.mode-presenter #header-link{display:none}
+body.mode-presenter #deck,body.mode-presenter #nav,body.mode-presenter #counter,body.mode-presenter #keys,body.mode-presenter #progress,body.mode-presenter #header-link,body.mode-presenter #chapters{display:none}
 body.mode-presenter #presenter-view{
   display:grid;grid-template-rows:auto 1fr auto;
   height:100vh;font-family:'Inter',system-ui,sans-serif;
@@ -388,13 +413,14 @@ body.mode-presenter #presenter-view{
   padding:1px 5px;font-size:10px;
 }
 /* Thumbnail mode — hide chrome so iframe looks clean */
-body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-thumb #progress,body.mode-thumb #header-link{display:none}
+body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-thumb #progress,body.mode-thumb #header-link,body.mode-thumb #chapters{display:none}
 </style>
 </head>
 <body>
 
 <div id="header-link"><a href="https://linkedin.com/in/johanwallquist" target="_blank" style="font-size:12px;color:var(--fg-muted);text-decoration:none;font-family:var(--font-body);font-weight:500;letter-spacing:.02em;padding:8px 16px;display:inline-block;">Johan Wallquist &middot; Partner Solution Architect, Microsoft</a></div>
 <div id="progress"></div>
+<nav id="chapters"></nav>
 <nav id="nav"></nav>
 <div id="counter"><span>1</span> / -</div>
 <div id="keys"><span class="key">&uarr;</span><span class="key">&darr;</span> navigate</div>
@@ -1005,12 +1031,37 @@ if (mode === 'notes') {
 }
 /* ── Deck modes (deck + thumb) share the navigation runtime ── */
 else {
-const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')],progress=document.getElementById('progress'),counter=document.getElementById('counter'),nav=document.getElementById('nav'),total=slides.length;
+const deck=document.getElementById('deck'),slides=[...document.querySelectorAll('.slide')],progress=document.getElementById('progress'),counter=document.getElementById('counter'),nav=document.getElementById('nav'),chaptersEl=document.getElementById('chapters'),total=slides.length;
+
+/* ── Chapter map: audience-facing section labels ── */
+const chapters=[
+  {label:'Intro',          ids:['title']},
+  {label:'Opportunity',    ids:['section-opportunity','partner-voice','hook-stats','lifecycle']},
+  {label:'Toolbelt',       ids:['section-toolbelt','client-facing','delivery-execution','pm-backbone']},
+  {label:'Demo',           ids:['section-demo','demo-cli']},
+  {label:'Delivery Paths', ids:['section-paths','four-paths','workshop-to-plan','agentic-modernization','ai-path-production','pro-code-mcp']},
+  {label:'Blueprint',      ids:['toolbox-agents','monday-morning']},
+  {label:'Your Turn',      ids:['setup-in-one-prompt','exercise-launch']},
+  {label:'Trust & Wrap',   ids:['trust-boundary']}
+];
+const slideChapter=slides.map(s=>{const id=s.id;return chapters.findIndex(ch=>ch.ids.includes(id));});
+chapters.forEach((ch,i)=>{
+  const b=document.createElement('button');
+  b.className='chapter-pill'+(i===0?' active':'');
+  b.textContent=ch.label;
+  b.addEventListener('click',()=>{
+    const target=document.getElementById(ch.ids[0]);
+    if(target) target.scrollIntoView({behavior:'smooth'});
+  });
+  chaptersEl.appendChild(b);
+});
+const pills=[...document.querySelectorAll('.chapter-pill')];
 
 slides.forEach((s,i)=>{
   const d=document.createElement('button');
   d.className='nav-dot'+(i===0?' active':'');
   d.dataset.label=s.dataset.label||`Slide ${i+1}`;
+  if(i>0 && slideChapter[i]!==slideChapter[i-1]) d.classList.add('chapter-start');
   d.addEventListener('click',()=>slides[i].scrollIntoView({behavior:'smooth'}));
   nav.appendChild(d);
 });
@@ -1031,6 +1082,8 @@ const slideObs=new IntersectionObserver(e=>{
         activeIndex=idx;
         broadcastSlide(idx);
         dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
+        const chIdx=slideChapter[idx];
+        pills.forEach((p,i)=>p.classList.toggle('active',i===chIdx));
         counter.innerHTML=`<span>${idx+1}</span> / ${total}`;
         progress.style.width=`${((idx+1)/total)*100}%`;
         const headerLink=document.getElementById('header-link');
