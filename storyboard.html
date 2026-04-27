@@ -130,7 +130,7 @@
 <body>
 
 <div class="header">
-  <h1>CAIP Frontier Consultancy</h1>
+  <h1>CAIP Frontier Consultancy <span style="font-size:0.65rem;background:rgba(255,255,255,0.15);padding:2px 8px;border-radius:4px;margin-left:0.5rem;letter-spacing:0.05em;font-weight:600;vertical-align:middle;">v2.0 · in progress</span></h1>
   <p>AI-First Delivery for Cloud & AI Platform Partners · 60–90 min workshop</p>
 </div>
 
@@ -177,6 +177,12 @@
       <li>Not a product pitch for Copilot or specific Azure services</li>
       <li>Not a certification or formal enablement track — it sets up the appetite for one</li>
     </ul>
+  </details>
+
+  <details>
+    <summary>Where this fits — Microsoft's broader partner framing</summary>
+    <p>Frontier is the <em>delivery motion</em> under Microsoft's <a href="https://microsoftpartners.microsoft.com/abs/Blog/?title=Introducing%20the%20AI-First%20Partner%20Transformation%20Playbook%3A%20%20Navigating%20the%20Future%20of%20AI%20Business%20Solutions" target="_blank" rel="noopener">AI-First Partner Transformation Playbook</a> (Microsoft AI Business Solutions). The Playbook frames <em>what changes</em> for the partner business — offerings, GTM, commercial shape. Frontier shows <em>how consultants deliver</em> in that new shape. Use the Playbook as the strategic umbrella; use Frontier as the concrete first-touch motion underneath it.</p>
+    <p><small>Note: the Playbook download requires partner sign-in. The blog announcement above is the public canonical reference.</small></p>
   </details>
 
   <details>
@@ -635,7 +641,7 @@
       <ul>
         <li><strong>Pre-Sales:</strong> Azure Copilot and Architecture Center draft solutioning content and cost models in minutes. Proposals stop being blank pages.</li>
         <li><strong>Discovery:</strong> M365 Copilot handles meeting recaps and action tracking. WorkIQ surfaces how the customer's teams actually work.</li>
-        <li><strong>Design:</strong> Copilot Studio and Azure AI Foundry patterns accelerate architecture decisions. ADRs and landing zone templates write themselves.</li>
+        <li><strong>Design:</strong> Copilot Studio and Azure AI Foundry patterns accelerate architecture decisions. ADRs and landing zone templates are drafted for review.</li>
       </ul>
     </div>
     <div class='script-panel'>
@@ -651,9 +657,9 @@
     <div class='slide-panel'>
       <div class='sn'>Slide 8</div>
       <h2>Delivery Execution — where speed compounds</h2>
-      <h4>Build, test, deploy, operate. GitHub Copilot in agent mode — plus MCP — is where the 30–50% speedups stop being a slide and start being real.</h4>
+      <h4>Build, test, deploy, operate. GitHub Copilot in agent mode — plus MCP — is where 30–50% gains on routine build tasks stop being a slide and start being real.</h4>
       <ul>
-        <li><strong>Build:</strong> GitHub Copilot agent mode writes code, runs tests, opens PRs. Azure MCP gives it live cloud context. 30–50% faster is conservative now.</li>
+        <li><strong>Build:</strong> GitHub Copilot agent mode writes code, runs tests, opens PRs. Azure MCP gives it live cloud context. 30–50% faster on routine build tasks — boilerplate, tests, infra scaffolding.</li>
         <li><strong>Test / QA:</strong> Copilot generates unit tests. Azure Load Testing scales perf runs. GenAI Ops handles evaluation for AI workloads.</li>
         <li><strong>Deploy:</strong> GitHub Actions with Copilot assist. Deployment drift caught before it reaches production.</li>
         <li><strong>Operate:</strong> Azure Copilot for monitoring. Incidents summarised, root causes proposed, runbooks generated on the fly.</li>
@@ -665,7 +671,7 @@
         <span class='energy energy-high' style='background: #ff6b35;'>high</span>
       </div>
       <p class='small'><strong>DO:</strong> Emphasise 'agent mode' — that's the 2026 shift. Not autocomplete any more.</p>
-      <p><strong>SAY:</strong> A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Agent mode means Copilot writes the code, runs the tests, reads the errors, and opens the pull request. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. That is the multiplier. Same developer, double the throughput. And that carries through test, deploy, operate. The speed compounds because every phase hands cleaner context to the next.</p>
+      <p><strong>SAY:</strong> A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Agent mode means Copilot writes the code, runs the tests, reads the errors, and opens the pull request. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. That is the multiplier. Same developer, double the throughput. And that carries through test, deploy, operate. The speed compounds because every phase hands cleaner context to the next. Worth name-dropping if anyone asks about the upstream end: <strong>GitHub Spec Kit</strong> is the spec-driven on-ramp — turns requirements into structured plans agent mode can execute against.</p>
     </div>
   </div>
   <div class='slide-row'>
@@ -677,6 +683,7 @@
         <li><strong>ADO Copilot + Remote MCP:</strong> Work items, sprints, PRs — managed conversationally. ADO MCP remote endpoint is in public preview. No more SDK plumbing.</li>
         <li><strong>WorkIQ + Power BI:</strong> Workplace analytics on how your delivery team actually spends time. Power BI with Copilot surfaces risk across portfolios.</li>
         <li><strong>The Microsoft MCP Catalog:</strong> github.com/microsoft/mcp. Azure, ADO, Fabric, Learn, Power BI Modeling, SQL, GitHub, Clarity, Data Factory — one place.</li>
+        <li><strong>Copilot Cowork:</strong> Multi-step Copilot agents for the admin loop — recurring status, retro summaries, intake triage. Take repeating PM tasks off the delivery team.</li>
       </ul>
     </div>
     <div class='script-panel'>
@@ -699,14 +706,15 @@
       <div class='sn'>Slide 10</div>
       <h2>Live Demo</h2>
       <h4>Copilot CLI. Azure MCP. ADO MCP. One prompt. Three systems. Real cloud context.</h4>
+      <p style="margin-top:12px;font-size:13px;opacity:.75;"><strong>Pre-flight:</strong> managed identity · scoped access · audit trail · human review gates. The trust boundary is wrapped around what you're about to see. Full breakdown in act eight.</p>
     </div>
     <div class='script-panel'>
       <div class='meta'>
         <span class='timing'>30s</span>
         <span class='energy energy-high' style='background: #ff6b35;'>calm</span>
       </div>
-      <p class='small'><strong>DO:</strong> Take a breath. Switch to terminal. Check the projector is still on the right monitor.</p>
-      <p><strong>SAY:</strong> Enough slides. Let me show you.</p>
+      <p class='small'><strong>DO:</strong> Take a breath. Switch to terminal. Check the projector is still on the right monitor. Read the pre-flight footer aloud — that's your 30-second governance beat before going live.</p>
+      <p><strong>SAY:</strong> Enough slides. Let me show you. Quick pre-flight before I run anything live: this runs under managed identity with scoped access. Every call is audited. There are human review gates on anything that reaches production. The trust boundary is wrapped around what you're about to see — the full breakdown is at the end. Now, the demo.</p>
     </div>
   </div>
   <div class='slide-row'>
@@ -742,7 +750,7 @@
     </div>
     <div class='demo-step'>
       <div class='demo-num'>4</div>
-      <div><strong>Show Bicep output</strong><br/><small>Production-grade Bicep, policies applied, tagging standards honoured. Highlight that Copilot referenced your org's reference patterns via the custom MCP.</small></div>
+      <div><strong>Show Bicep output</strong><br/><small>Review-ready Bicep against your patterns, policies applied, tagging standards honoured. Highlight that Copilot referenced your org's reference patterns via the custom MCP.</small></div>
     </div>
     <div class='demo-step'>
       <div class='demo-num'>5</div>

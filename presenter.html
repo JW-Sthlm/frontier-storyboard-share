@@ -521,22 +521,22 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
       <div class="info-card">
         <div class="icon">🏛️</div>
         <div class="card-title">Design</div>
-        <div class="card-text">Copilot Studio and Azure AI Foundry patterns accelerate architecture decisions. ADRs and landing zone templates write themselves.</div>
+        <div class="card-text">Copilot Studio and Azure AI Foundry patterns accelerate architecture decisions. ADRs and landing zone templates are drafted for review.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="delivery-execution" data-label="Delivery Execution" data-notes="DO: Emphasise 'agent mode' — that's the 2026 shift. Not autocomplete any more. SAY: A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Agent mode means Copilot writes the code, runs the tests, reads the errors, and opens the pull request. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. That is the multiplier. Same developer, double the throughput. And that carries through test, deploy, operate. The speed compounds because every phase hands cleaner context to the next.">
+<section class="slide" id="delivery-execution" data-label="Delivery Execution" data-notes="DO: Emphasise 'agent mode' — that's the 2026 shift. Not autocomplete any more. SAY: A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Agent mode means Copilot writes the code, runs the tests, reads the errors, and opens the pull request. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. That is the multiplier. Same developer, double the throughput. And that carries through test, deploy, operate. The speed compounds because every phase hands cleaner context to the next. Worth name-dropping if anyone asks about the upstream end: GitHub Spec Kit is the spec-driven on-ramp — turns requirements into structured plans agent mode can execute against.">
   <div class="slide-inner">
     <div class="part-label reveal">PHASE 2 · BUILD → OPERATE</div>
     <h2 class="reveal d1">Delivery Execution — where <span class="accent">speed compounds</span></h2>
-    <p class="lead reveal d2">Build, test, deploy, operate. GitHub Copilot in agent mode — plus MCP — is where the 30–50% speedups stop being a slide and start being real.</p>
+    <p class="lead reveal d2">Build, test, deploy, operate. GitHub Copilot in agent mode — plus MCP — is where 30–50% gains on routine build tasks stop being a slide and start being real.</p>
     <div class="card-grid reveal d3" style="grid-template-columns:repeat(4,1fr)">
       <div class="info-card">
         <div class="icon">⚡</div>
         <div class="card-title">Build</div>
-        <div class="card-text">GitHub Copilot agent mode writes code, runs tests, opens PRs. Azure MCP gives it live cloud context. 30–50% faster is conservative now.</div>
+        <div class="card-text">GitHub Copilot agent mode writes code, runs tests, opens PRs. Azure MCP gives it live cloud context. 30–50% faster on routine build tasks — boilerplate, tests, infra scaffolding.</div>
       </div>
       <div class="info-card">
         <div class="icon">🧪</div>
@@ -578,16 +578,22 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
         <div class="block-title">The Microsoft MCP Catalog</div>
         <div class="block-desc">github.com/microsoft/mcp. Azure, ADO, Fabric, Learn, Power BI Modeling, SQL, GitHub, Clarity, Data Factory — one place.</div>
       </div>
+      <div class="block-card">
+        <div class="block-icon">🔁</div>
+        <div class="block-title">Copilot Cowork</div>
+        <div class="block-desc">Multi-step Copilot agents for the admin loop — recurring status, retro summaries, intake triage. Take repeating PM tasks off the delivery team.</div>
+      </div>
     </div>
     <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">This is the 2026 shift: MCP is a first-class Microsoft surface, not a side project.</p>
   </div>
 </section>
 
-<section class="slide slide-alt slide-title" id="section-demo" data-label="Demo" data-notes="DO: Take a breath. Switch to terminal. Check the projector is still on the right monitor. SAY: Enough slides. Let me show you.">
-  <div class="slide-inner" style="text-align:center;max-width:700px;margin:0 auto;">
+<section class="slide slide-alt slide-title" id="section-demo" data-label="Demo" data-notes="DO: Take a breath. Switch to terminal. Check the projector is still on the right monitor. Read the pre-flight footer aloud — that's your 30-second governance beat before going live. SAY: Enough slides. Let me show you. Quick pre-flight before I run anything live: this runs under managed identity with scoped access. Every call is audited. There are human review gates on anything that reaches production. The trust boundary is wrapped around what you're about to see — the full breakdown is at the end. Now, the demo.">
+  <div class="slide-inner" style="text-align:center;max-width:760px;margin:0 auto;">
     <div class="part-label reveal">ACT THREE</div>
     <h2 class="reveal d1"><span class="accent">Live</span> Demo</h2>
     <p class="lead reveal d2">Copilot CLI. Azure MCP. ADO MCP. One prompt. Three systems. Real cloud context.</p>
+    <p class="reveal d3" style="margin-top:24px;font-size:14px;opacity:.8;line-height:1.55;"><strong style="color:var(--teal);">Pre-flight:</strong> managed identity · scoped access · audit trail · human review gates. The trust boundary is wrapped around what you're about to see. Full breakdown in act eight.</p>
   </div>
 </section>
 
