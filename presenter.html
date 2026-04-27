@@ -700,29 +700,31 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   <div class="slide-inner" style="text-align:center;max-width:760px;margin:0 auto;">
     <div class="part-label reveal">ACT THREE</div>
     <h2 class="reveal d1"><span class="accent">Live</span> Demo</h2>
-    <p class="lead reveal d2">Copilot CLI. Azure MCP. ADO MCP. One prompt. Three systems. Real cloud context.</p>
+    <p class="lead reveal d2">Copilot CLI. Azure MCP. ADO MCP. Customer transcript in. Landing zone out.</p>
     <p class="reveal d3" style="margin-top:24px;font-size:14px;opacity:.8;line-height:1.55;"><strong style="color:var(--teal);">Pre-flight:</strong> managed identity · scoped access · audit trail · human review gates. The trust boundary is wrapped around what you're about to see. Full breakdown in act eight.</p>
   </div>
 </section>
 
-<section class="slide" id="demo-cli" data-label="Demo: CLI + MCP" data-notes="DO: Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers before you start. SAY: I need to set up a landing zone for a new customer project. In the old world, that is two to four hours. Consultant opens the Architecture Center, reads the current patterns, writes the Bicep, logs the work in ADO, schedules the review meeting. Watch what happens when I type one prompt.">
+<section class="slide" id="demo-cli" data-label="Demo: CLI + MCP" data-notes="DO: Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is what Henri flagged as the differentiator. SAY: I need to set up a landing zone for a new customer project. Old world, two to four hours — and most of that isn't typing, it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep against your patterns, logs the ADO work item, and writes the handoff summary. The point isn't the speed — it's that the agent is grounded in what the customer told you, not in a prompt I made up.">
   <div class="slide-inner">
     <div class="part-label reveal">LIVE DEMO</div>
-    <h2 class="reveal d1"><span class="accent">Copilot CLI</span> + MCP in action</h2>
-    <p class="lead reveal d2">One landing-zone request. Watch it query Azure, generate Bicep from your patterns, and log the work item in ADO.</p>
+    <h2 class="reveal d1"><span class="accent">Copilot CLI</span> + MCP, grounded in customer context</h2>
+    <p class="lead reveal d2">Drop in the customer recap. One prompt. The agent reads what they actually said, queries Azure, drafts Bicep, logs the work.</p>
     <div class="reveal d2" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 12px;border-radius:var(--radius-sm);text-transform:uppercase;margin-bottom:12px;">LIVE DEMO</div>
     <div class="process-flow reveal d3">
+      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Drop in customer transcript</div>
+      <div class="process-arrow">&rarr;</div>
       <div class="process-step">Prompt the CLI</div>
       <div class="process-arrow">&rarr;</div>
       <div class="process-step">Query Azure (Azure MCP)</div>
       <div class="process-arrow">&rarr;</div>
-      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Generate Bicep</div>
+      <div class="process-step">Generate Bicep</div>
       <div class="process-arrow">&rarr;</div>
       <div class="process-step">Create ADO Work Item</div>
       <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Summarise & hand off</div>
+      <div class="process-step">Summarise &amp; hand off</div>
     </div>
-    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">If the demo fails: cut to the pre-recorded terminal capture and narrate the output.</p>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Transcript source in real engagements: Teams transcription, M365 Copilot meeting recap, or pasted notes. · If the demo fails: cut to the pre-recorded terminal capture and narrate.</p>
   </div>
 </section>
 
@@ -738,7 +740,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   <div class="slide-inner">
     <h2 class="reveal d1">Four paths, all <span class="accent">partner-led</span></h2>
     <p class="lead reveal d2">Workshop-to-Plan is the universal entry point. The other three branch from it.</p>
-    <div class="block-grid reveal d3">
+    <div class="block-grid reveal d3" style="grid-template-columns:repeat(2,1fr)">
       <div class="block-card">
         <div class="block-icon">🗺️</div>
         <div class="block-title">Workshop-to-Plan</div>

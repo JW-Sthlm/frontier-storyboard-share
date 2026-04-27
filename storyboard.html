@@ -360,7 +360,7 @@
         <div class='sorter-slide'>
           <div class='num'>Slide 11</div>
           <h5>Live Demo</h5>
-          <div class='thumb-body'>Copilot CLI. Azure MCP. ADO MCP. One prompt. Three systems. Real cloud context.</div>
+          <div class='thumb-body'>Copilot CLI. Azure MCP. ADO MCP. Customer transcript in. Landing zone out.</div>
         </div>
         <div class='sorter-tags'>
           <span class='st' style='background: #2D6E6D; color: white;'>30s</span>
@@ -370,8 +370,8 @@
       <div class='sorter-thumb'>
         <div class='sorter-slide'>
           <div class='num'>Slide 12</div>
-          <h5>Copilot CLI + MCP in action</h5>
-          <div class='thumb-body'>One landing-zone request. Watch it query Azure, generate Bicep from your patterns, and log the work item in ADO.</div>
+          <h5>Copilot CLI + MCP, grounded in customer context</h5>
+          <div class='thumb-body'>Drop in the customer recap. One prompt. The agent reads what they actually said, queries Azure, drafts Bicep, logs the work.</div>
         </div>
         <div class='sorter-tags'>
           <span class='st' style='background: #2D6E6D; color: white;'>8min</span>
@@ -743,7 +743,7 @@
     <div class='slide-panel'>
       <div class='sn'>Slide 11</div>
       <h2>Live Demo</h2>
-      <h4>Copilot CLI. Azure MCP. ADO MCP. One prompt. Three systems. Real cloud context.</h4>
+      <h4>Copilot CLI. Azure MCP. ADO MCP. Customer transcript in. Landing zone out.</h4>
       <p style="margin-top:12px;font-size:13px;opacity:.75;"><strong>Pre-flight:</strong> managed identity · scoped access · audit trail · human review gates. The trust boundary is wrapped around what you're about to see. Full breakdown in act eight.</p>
     </div>
     <div class='script-panel'>
@@ -758,9 +758,9 @@
   <div class='slide-row'>
     <div class='slide-panel'>
       <div class='sn'>Slide 12</div>
-      <h2>Copilot CLI + MCP in action</h2>
-      <h4>One landing-zone request. Watch it query Azure, generate Bicep from your patterns, and log the work item in ADO.</h4>
-      <p>Prompt the CLI → Query Azure (Azure MCP) → Generate Bicep → Create ADO Work Item → Summarise & hand off</p>
+      <h2>Copilot CLI + MCP, grounded in customer context</h2>
+      <h4>Drop in the customer recap. One prompt. The agent reads what they actually said, queries Azure, drafts Bicep, logs the work.</h4>
+      <p>Drop in customer transcript → Prompt the CLI → Query Azure (Azure MCP) → Generate Bicep → Create ADO Work Item → Summarise & hand off</p>
     </div>
     <div class='script-panel'>
       <div class='meta'>
@@ -768,44 +768,54 @@
         <span class='energy energy-high' style='background: #ff6b35;'>high</span>
       </div>
       <p class='small'><strong>DO:</strong> Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers before you start.</p>
-      <p><strong>SAY:</strong> I need to set up a landing zone for a new customer project. In the old world, that is two to four hours. Consultant opens the Architecture Center, reads the current patterns, writes the Bicep, logs the work in ADO, schedules the review meeting. Watch what happens when I type one prompt.</p>
+      <p><strong>DO:</strong> Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is the differentiator (Henri #8).</p>
+      <p><strong>SAY:</strong> I need to set up a landing zone for a new customer project. Old world, two to four hours — and most of that isn't typing, it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep against your patterns, logs the ADO work item, and writes the handoff summary. The point isn't the speed — it's that the agent is grounded in what the customer told you, not in a prompt I made up.</p>
     </div>
   </div>
   <div class='demo-card'>
-    <h3>Copilot CLI + MCP: Landing Zone in one prompt</h3>
+    <h3>Copilot CLI + MCP: Landing Zone grounded in customer transcript</h3>
     <h4>Steps</h4>
     <div class='demo-step'>
       <div class='demo-num'>1</div>
-      <div><strong>Open terminal</strong><br/><small>Copilot CLI configured with Azure MCP + ADO MCP. Alias: ghcs. Check az login is fresh.</small></div>
+      <div><strong>Open terminal</strong><br/><small>Copilot CLI configured with Azure MCP + ADO MCP. Alias: ghcs. Check az login is fresh. Have the mock customer recap file ready (assets/demo-customer-recap.md).</small></div>
     </div>
     <div class='demo-step'>
       <div class='demo-num'>2</div>
-      <div><strong>Prompt</strong><br/><small>"I need to deploy a landing zone for a new customer project — use our standard pattern, query my subscriptions for context, generate Bicep, and log the work item in ADO."</small></div>
+      <div><strong>Drop in customer transcript</strong><br/><small>Drag the customer recap file into the terminal — visible move. Mock content: a 1-page Teams meeting recap from "Contoso Mobility" asking for a hub-spoke landing zone with PCI scope, two regions, and SAP integration. This is the move the room will remember.</small></div>
     </div>
     <div class='demo-step'>
       <div class='demo-num'>3</div>
-      <div><strong>Narrate Azure MCP calls</strong><br/><small>Point out: subscription enumeration, existing resource group check, policy assignment read. This is live cloud context — not a static template.</small></div>
+      <div><strong>Prompt</strong><br/><small>"Read the attached customer recap. Set up the landing zone they asked for — use our standard pattern, query my subscriptions for context, generate Bicep, and log the work item in ADO."</small></div>
     </div>
     <div class='demo-step'>
       <div class='demo-num'>4</div>
-      <div><strong>Show Bicep output</strong><br/><small>Review-ready Bicep against your patterns, policies applied, tagging standards honoured. Highlight that Copilot referenced your org's reference patterns via the custom MCP.</small></div>
+      <div><strong>Narrate Azure MCP calls</strong><br/><small>Point out: subscription enumeration, existing resource group check, policy assignment read. This is live cloud context — not a static template.</small></div>
     </div>
     <div class='demo-step'>
       <div class='demo-num'>5</div>
-      <div><strong>Show ADO work item</strong><br/><small>Work item created in the right area path, acceptance criteria drafted, linked to the architecture decision record.</small></div>
+      <div><strong>Show Bicep output</strong><br/><small>Review-ready Bicep against your patterns. Crucially: PCI scoping, dual-region, SAP-ready VNETs — pulled from the recap, not the prompt. Pause and quote the agent quoting the customer.</small></div>
     </div>
     <div class='demo-step'>
       <div class='demo-num'>6</div>
+      <div><strong>Show ADO work item</strong><br/><small>Work item created in the right area path, acceptance criteria drafted (also lifted from the recap), linked to the architecture decision record.</small></div>
+    </div>
+    <div class='demo-step'>
+      <div class='demo-num'>7</div>
       <div><strong>Close the loop</strong><br/><small>"Summarise what you did and send it to my Teams Notes." Show the end-to-end hand-off.</small></div>
     </div>
     <div class='demo-key-msg'>
       <h4>Key Moments</h4>
       <table>
         <tr><th>Moment</th><th>Message</th></tr>
-        <tr><td>When Azure MCP calls start streaming</td><td>Three systems, one prompt. Notice you never left the terminal.</td></tr>
+        <tr><td>When you drag the transcript in</td><td>This is the move. Not a clever prompt — real customer context handed to the agent. Same context your consultants normally hold in their head.</td></tr>
+        <tr><td>When the agent quotes back the customer's PCI / SAP / region requirements</td><td>The agent isn't making up architecture. It's reading what the customer actually said.</td></tr>
         <tr><td>When Bicep renders</td><td>This would have been a two-to-four-hour task with a senior consultant. We're under a minute.</td></tr>
         <tr><td>When the ADO work item appears</td><td>The work item is logged, linked, and ready for review. The consultant's next action is the review, not the assembly.</td></tr>
       </table>
+    </div>
+    <div class='demo-prompt'>
+      <p class='prompt-label'>Transcript source in real engagements:</p>
+      <p>Teams transcription, M365 Copilot meeting recap, or pasted notes. The point is: the consultant didn't have to summarise it first.</p>
     </div>
     <div class='demo-prompt'>
       <p class='prompt-label'>Fallback:</p>
