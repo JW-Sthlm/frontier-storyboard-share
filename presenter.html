@@ -534,8 +534,9 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
       </div>
     </div>
     <div class="reveal d4" style="margin-top:28px;padding:14px 20px;background:rgba(45,110,109,.06);border-left:3px solid var(--teal);border-radius:6px;font-size:13.5px;line-height:1.55">
-      <strong style="color:var(--teal);text-transform:uppercase;letter-spacing:.06em;font-size:11px">Public example — partner as customer zero</strong><br>
-      <strong>Fellowmind launched Hive AI</strong>, an agentic platform for delivery. The flagship agent matches consultant CVs to RFP requirements — a problem every consultancy has. Built by a consultancy, productised for consultancies. <a href="https://www.fellowmind.com/news/agentic-services-portfolio/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline">Hive AI portfolio →</a>
+      <strong style="color:var(--teal);text-transform:uppercase;letter-spacing:.06em;font-size:11px">Public proof points</strong><br>
+      <strong>Fellowmind launched Hive AI</strong>, an agentic platform for delivery. The flagship agent matches consultant CVs to RFP requirements — a problem every consultancy has. Built by a consultancy, productised for consultancies. <a href="https://www.fellowmind.com/news/agentic-services-portfolio/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline">Hive AI portfolio →</a><br><br>
+      <strong>Accenture's published numbers</strong> — PR cycle time from 9.6 days to 2.4 days. 84% more builds passing CI. The productivity case for AI-first delivery is no longer theoretical. <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-in-the-enterprise-with-accenture/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:underline">GitHub research →</a>
     </div>
   </div>
 </section>
@@ -721,26 +722,28 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="demo-cli" data-label="Demo: CLI + MCP" data-notes="DO: Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is what Henri flagged as the differentiator. SAY: I need to set up a landing zone for a new customer project. Old world, two to four hours. Most of that time isn't typing — it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep review-ready against your patterns, logs the ADO work item, and drafts the handoff summary. None of that ships without a senior pair of eyes. The senior is reviewing now instead of typing. The real point is grounding. The agent reads actual customer words instead of a prompt I cooked up.">
+<section class="slide" id="demo-cli" data-label="Demo: CLI + MCP" data-notes="DO: Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is what Henri flagged as the differentiator. When the PR step appears, pause and call it out: 'this is what catches the agent if it gets it wrong — security scan, policy lint, codeowner review run before any human reads the code.' That answers the 'devs just become PR reviewers' worry head-on (Juan Manuel #1). SAY: I need to set up a landing zone for a new customer project. Old world, two to four hours. Most of that time isn't typing — it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep review-ready against your patterns, opens a PR that triggers your CI checks (security scan, codeowners) before any human reads the code, logs the ADO work item, and drafts the handoff summary. None of that ships without a senior pair of eyes. The senior is reviewing the work the gates already validated, instead of typing. The real point is grounding. The agent reads actual customer words instead of a prompt I cooked up.">
   <div class="slide-inner">
     <div class="part-label reveal">LIVE DEMO</div>
     <h2 class="reveal d1"><span class="accent">Copilot CLI</span> + MCP, grounded in customer context</h2>
     <p class="lead reveal d2">Drop in the customer recap. One prompt. The agent reads what they actually said, queries Azure, drafts Bicep, logs the work.</p>
     <div class="reveal d2" style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 12px;border-radius:var(--radius-sm);text-transform:uppercase;margin-bottom:12px;">LIVE DEMO</div>
-    <div class="process-flow reveal d3" style="flex-wrap:nowrap;font-size:12.5px;gap:0;">
-      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);padding:8px 12px;white-space:nowrap;">Drop in transcript</div>
-      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
-      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Prompt the CLI</div>
-      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
-      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Query Azure (MCP)</div>
-      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
-      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Generate Bicep</div>
-      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
-      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Create ADO work item</div>
-      <div class="process-arrow" style="padding:0 4px;">&rarr;</div>
-      <div class="process-step" style="padding:8px 12px;white-space:nowrap;">Hand off</div>
+    <div class="process-flow reveal d3" style="flex-wrap:wrap;justify-content:center;font-size:11.5px;gap:6px 0;">
+      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);padding:7px 10px;white-space:nowrap;">Drop in transcript</div>
+      <div class="process-arrow" style="padding:0 3px;">&rarr;</div>
+      <div class="process-step" style="padding:7px 10px;white-space:nowrap;">Prompt the CLI</div>
+      <div class="process-arrow" style="padding:0 3px;">&rarr;</div>
+      <div class="process-step" style="padding:7px 10px;white-space:nowrap;">Query Azure (MCP)</div>
+      <div class="process-arrow" style="padding:0 3px;">&rarr;</div>
+      <div class="process-step" style="padding:7px 10px;white-space:nowrap;">Generate Bicep</div>
+      <div class="process-arrow" style="padding:0 3px;">&rarr;</div>
+      <div class="process-step" style="padding:7px 10px;white-space:nowrap;border-color:var(--teal);color:var(--teal);font-weight:600;">Open PR · CI gates</div>
+      <div class="process-arrow" style="padding:0 3px;">&rarr;</div>
+      <div class="process-step" style="padding:7px 10px;white-space:nowrap;">Create ADO work item</div>
+      <div class="process-arrow" style="padding:0 3px;">&rarr;</div>
+      <div class="process-step" style="padding:7px 10px;white-space:nowrap;">Hand off</div>
     </div>
-    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Transcript source in real engagements: Teams transcription, M365 Copilot meeting recap, or pasted notes. · If the demo fails: cut to the pre-recorded terminal capture and narrate.</p>
+    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:24px;font-style:italic">PR step triggers your CI checks — security scan, policy lint, codeowner review — before any human reads the code. The agent moves fast because the gates make it safe to. · Transcript source in real engagements: Teams transcription, M365 Copilot meeting recap, or pasted notes. · If the demo fails: cut to the pre-recorded terminal capture and narrate.</p>
   </div>
 </section>
 
@@ -948,7 +951,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="monday-morning" data-label="Monday Morning" data-notes="DO: Direct eye contact with the group. Ask implicitly — which tier are YOU? Read the metric line under each card last — that's the answer to 'how do I prove this to my CFO?' (Jarrod #17). SAY: Concrete actions, by tier — and the numbers each tier should be measuring. Just Starting: turn on Teams transcription, get M365 Copilot in front of your delivery team, start a GitHub Copilot trial and install the Azure Skills Plugin — one command and your delivery team has twenty-five Azure skills and two hundred MCP tools, today. Run one Workshop-to-Plan this month. Measure adoption — % meetings transcribed, weekly active Copilot users, workshop hours per engagement. If those numbers don't move, nothing else will. Have the Basics: ship your first AI-first engagement on the public Microsoft stack. Measure flow — time-to-first-PR, rework rate on AI-drafted artefacts, documentation freshness. These are the metrics your delivery managers can act on. Ready to Scale: your IP becomes MCP servers, your methodology becomes prompt libraries — and the numbers go to the CFO. Gross margin per engagement, billable utilisation, defect escape rate. If you can publish those quarter on quarter, you're not selling AI delivery — you're proving it.">
+<section class="slide" id="monday-morning" data-label="Monday Morning" data-notes="DO: Direct eye contact with the group. Ask implicitly — which tier are YOU? Read the metric line under each card last — that's the answer to 'how do I prove this to my CFO?' (Jarrod #17). SAY: Concrete actions, by tier — and the numbers each tier should be measuring. Just Starting: turn on Teams transcription, get M365 Copilot in front of your delivery team, start a GitHub Copilot trial and install the Azure Skills Plugin — one command and your delivery team has twenty-five Azure skills and two hundred MCP tools, today. Run one Workshop-to-Plan this month. Measure adoption — % meetings transcribed, weekly active Copilot users, workshop hours per engagement. If those numbers don't move, nothing else will. Have the Basics: ship your first AI-first engagement on the public Microsoft stack. Measure flow — time-to-first-PR, rework rate on AI-drafted artefacts, documentation freshness. These are the metrics your delivery managers can act on. Ready to Scale: your IP becomes MCP servers, your methodology becomes prompt libraries — and the numbers go to the CFO. Some partners call this the CoE: standards, repeatable assets, KPIs. Gross margin per engagement, billable utilisation, defect escape rate. If you can publish those quarter on quarter, you're not selling AI delivery — you're proving it.">
   <div class="slide-inner">
     <div class="part-label reveal">ACT SIX · ACTION</div>
     <h2 class="reveal d1">What to do <span class="accent">Monday</span> morning</h2>
@@ -969,7 +972,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
       <div class="block-card">
         <div class="block-icon">🏃</div>
         <div class="block-title">Ready to Scale</div>
-        <div class="block-desc">Build custom MCP servers for your IP. Publish prompt libraries by practice area. Wire AI into your methodology, not just your tooling. Measure and publish the productivity gains.</div>
+        <div class="block-desc">Build custom MCP servers for your IP. Publish prompt libraries by practice area. Wire AI into your methodology, not just your tooling. Measure and publish the productivity gains. This is your CoE — standards, repeatable assets, KPIs.</div>
         <div style="font-size:12.5px;color:var(--teal);font-weight:600;border-top:1px solid var(--border-light);padding-top:8px;margin-top:4px;line-height:1.45;"><span style="text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;color:var(--fg-muted);font-weight:700;">Measure (economics)</span><br>gross margin per engagement · billable utilisation · defect escape rate</div>
       </div>
     </div>
@@ -1034,12 +1037,12 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide slide-alt" id="trust-boundary"data-label="Trust Boundary" data-notes="DO: Final slide. Slow right down. Land on the footer. Then thank the room and open for questions. SAY: Last slide. I moved this one out of the appendix because if I skipped over it, you would rightly stop me. Everything you saw today sits inside Microsoft's enterprise trust boundary. Your customer's data does not leave it. No model trains on it. Entra handles identity. Foundry handles content filtering and evaluation. The six Responsible AI principles are built into the platform from day one. That is why an AI-first partner delivery practice is defensible. It is also why your customer's CISO will let you ship. Thank you. Let's talk.">
+<section class="slide slide-alt" id="trust-boundary"data-label="Trust Boundary" data-notes="DO: Final slide. Slow right down. Land on the footer. Then thank the room and open for questions. SAY: Last slide. I moved this one out of the appendix because if I skipped over it, you would rightly stop me. Everything you saw today sits inside Microsoft's enterprise trust boundary. Your customer's data does not leave it. No model trains on it. Entra handles identity. Foundry handles content filtering and evaluation. The six Responsible AI principles are built into the platform from day one. And on the agent itself — tool allowlists scope what each one can touch, approval gates fire on every write action, every action is logged, every change is reversible. The rails are what let the agent move fast safely. That is why an AI-first partner delivery practice is defensible. It is also why your customer's CISO will let you ship. Thank you. Let's talk.">
   <div class="slide-inner">
     <div class="part-label reveal">THE CLOSE</div>
     <h2 class="reveal d1">The <span class="accent">Trust</span> Boundary</h2>
-    <p class="lead reveal d2">Why this works at enterprise scale. Every tool in this deck inherits Microsoft's enterprise trust framework.</p>
-    <div class="block-grid reveal d3">
+    <p class="lead reveal d2">Why this works at enterprise scale. Platform-grade trust on the data, the model, and the agent itself.</p>
+    <div class="block-grid reveal d3" style="grid-template-columns:repeat(2,1fr);max-width:880px;margin-left:auto;margin-right:auto;">
       <div class="block-card">
         <div class="block-icon">🔒</div>
         <div class="block-title">Data Security</div>
@@ -1054,6 +1057,11 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
         <div class="block-icon">⚖️</div>
         <div class="block-title">Responsible AI</div>
         <div class="block-desc">Microsoft's six Responsible AI principles. Fairness, reliability, privacy, inclusiveness, transparency, accountability — built into the platform.</div>
+      </div>
+      <div class="block-card">
+        <div class="block-icon">🛡️</div>
+        <div class="block-title">Agent Operations</div>
+        <div class="block-desc">Tool allowlists scope what each agent can touch. Approval gates on every write action. Every action logged, every change reversible. The rails are what let the agent move fast safely.</div>
       </div>
     </div>
     <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">Johan Wallquist · Partner Solution Architect, Microsoft · aka.ms/caip-frontier</p>

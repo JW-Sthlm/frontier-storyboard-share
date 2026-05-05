@@ -599,15 +599,15 @@
       <p class='highlight-line'>60–80h — Documentation overhead per engagement (Forrester)</p>
       <p class='highlight-line'>15% — Consultant time on unbilled admin (McKinsey)</p>
       <p class='highlight-line'>25–40% — Overhead reduction possible with AI (GitHub Octoverse)</p>
-      <p style='margin-top:12px;padding:10px 14px;background:rgba(45,110,109,.08);border-left:3px solid #2D6E6D;border-radius:4px;font-size:14px;'><strong>Public example — partner as customer zero:</strong> Fellowmind launched <strong>Hive AI</strong>, an agentic platform for delivery. The flagship agent matches consultant CVs to RFP requirements. Built by a consultancy, productised for consultancies. <a href='https://www.fellowmind.com/news/agentic-services-portfolio/' target='_blank'>Hive AI portfolio</a></p>
+      <p style='margin-top:12px;padding:10px 14px;background:rgba(45,110,109,.08);border-left:3px solid #2D6E6D;border-radius:4px;font-size:14px;'><strong>Public proof points.</strong> Fellowmind launched <strong>Hive AI</strong>, an agentic platform for delivery. The flagship agent matches consultant CVs to RFP requirements. Built by a consultancy, productised for consultancies. <a href='https://www.fellowmind.com/news/agentic-services-portfolio/' target='_blank'>Hive AI portfolio</a>. <strong>Accenture</strong> published the productivity numbers — PR cycle time from 9.6 days to 2.4 days, 84% more builds passing CI. <a href='https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-in-the-enterprise-with-accenture/' target='_blank'>GitHub research</a>.</p>
     </div>
     <div class='script-panel'>
       <div class='meta'>
         <span class='timing'>4min</span>
         <span class='energy energy-high' style='background: #ff6b35;'>high</span>
       </div>
-      <p class='small'><strong>DO:</strong> Optional opener: run a 2-min Menti poll — "Where does your team spend the most non-billable time?" Documentation / research / scheduling / manual tasks. Reveal results, then move to the three stats. Land on the Fellowmind callout — name the partner, name the agent, point at the link. That is the proof.</p>
-      <p><strong>SAY:</strong> Sixty to eighty hours per engagement on documentation and admin. That is a full consultant-week, buried inside every project, before you bill a single dollar of AI work. Fifteen percent of consultant time never reaches an invoice. The third number is the one moving fast: the same reports now show twenty-five to forty percent of that overhead is reducible with AI tooling that is already public. You already own the licences. The question is whether your delivery process reflects it yet. And if you want a public proof point — Fellowmind built Hive AI, an agentic platform whose flagship agent matches consultant CVs to RFP requirements. Built by a consultancy, productised for consultancies. That is the customer-zero pattern this session is about — spot the friction in your own delivery, build the agent, and the agent becomes part of what you sell.</p>
+      <p class='small'><strong>DO:</strong> Optional opener: run a 2-min Menti poll — "Where does your team spend the most non-billable time?" Documentation / research / scheduling / manual tasks. Reveal results, then move to the three stats. Land on the proof callout — name Fellowmind, name the agent, point at the link. Then mention Accenture as the production data point if anyone asks for harder numbers (Juan Manuel #6).</p>
+      <p><strong>SAY:</strong> Sixty to eighty hours per engagement on documentation and admin. That is a full consultant-week, buried inside every project, before you bill a single dollar of AI work. Fifteen percent of consultant time never reaches an invoice. The third number is the one moving fast: the same reports now show twenty-five to forty percent of that overhead is reducible with AI tooling that is already public. You already own the licences. The question is whether your delivery process reflects it yet. Two public proof points. Fellowmind built Hive AI, an agentic platform whose flagship agent matches consultant CVs to RFP requirements. Built by a consultancy, productised for consultancies. That is the customer-zero pattern. And on the productivity side, Accenture published the numbers with GitHub — PR cycle time dropped from 9.6 days to 2.4 days, 84% more builds passing CI. The economic case for AI-first delivery is no longer theoretical.</p>
     </div>
   </div>
   <div class='slide-row'>
@@ -763,7 +763,7 @@
       <div class='sn'>Slide 12</div>
       <h2>Copilot CLI + MCP, grounded in customer context</h2>
       <h4>Drop in the customer recap. One prompt. The agent reads what they actually said, queries Azure, drafts Bicep, logs the work.</h4>
-      <p>Drop in customer transcript → Prompt the CLI → Query Azure (Azure MCP) → Generate Bicep → Create ADO Work Item → Summarise & hand off</p>
+      <p>Drop in customer transcript → Prompt the CLI → Query Azure (Azure MCP) → Generate Bicep → <strong>Open PR · CI gates</strong> → Create ADO Work Item → Summarise & hand off</p>
     </div>
     <div class='script-panel'>
       <div class='meta'>
@@ -771,8 +771,8 @@
         <span class='energy energy-high' style='background: #ff6b35;'>high</span>
       </div>
       <p class='small'><strong>DO:</strong> Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers before you start.</p>
-      <p><strong>DO:</strong> Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is the differentiator (Henri #8).</p>
-      <p><strong>SAY:</strong> I need to set up a landing zone for a new customer project. Old world, two to four hours. Most of that time isn't typing — it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep review-ready against your patterns, logs the ADO work item, and drafts the handoff summary. None of that ships without a senior pair of eyes. The senior is reviewing now instead of typing. The real point is grounding. The agent reads actual customer words instead of a prompt I cooked up.</p>
+      <p><strong>DO:</strong> Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is the differentiator (Henri #8). When the PR step appears, pause and call it out: 'this is what catches the agent if it gets it wrong — security scan, policy lint, codeowner review run before any human reads the code.' That answers the 'devs just become PR reviewers' worry head-on (Juan Manuel #1).</p>
+      <p><strong>SAY:</strong> I need to set up a landing zone for a new customer project. Old world, two to four hours. Most of that time isn't typing — it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep review-ready against your patterns, opens a PR that triggers your CI checks (security scan, codeowners) before any human reads the code, logs the ADO work item, and drafts the handoff summary. None of that ships without a senior pair of eyes. The senior is reviewing the work the gates already validated, instead of typing. The real point is grounding. The agent reads actual customer words instead of a prompt I cooked up.</p>
     </div>
   </div>
   <div class='demo-card'>
@@ -968,7 +968,7 @@
       <ul>
         <li><strong>Just Starting:</strong> Turn on Teams transcription for every client meeting. Activate M365 Copilot for your delivery team. Start a GitHub Copilot trial and install the Azure Skills Plugin (one command — 25 Azure skills, 200+ MCP tools). Run one Workshop-to-Plan this month.<br><em>Measure (adoption): % meetings transcribed · weekly active Copilot users · workshop hours per engagement.</em></li>
         <li><strong>Have the Basics:</strong> Adopt the Microsoft MCP catalog across your delivery team. Ship your first AI-first engagement. Build your first Copilot Studio agent. Stand up a prompt library for your top five plays.<br><em>Measure (flow): time-to-first-PR · rework rate on AI-drafted artefacts · documentation freshness.</em></li>
-        <li><strong>Ready to Scale:</strong> Build custom MCP servers for your IP. Publish prompt libraries by practice area. Wire AI into your methodology, not just your tooling. Measure and publish the productivity gains.<br><em>Measure (economics): gross margin per engagement · billable utilisation · defect escape rate.</em></li>
+        <li><strong>Ready to Scale:</strong> Build custom MCP servers for your IP. Publish prompt libraries by practice area. Wire AI into your methodology, not just your tooling. Measure and publish the productivity gains. <em>This is your CoE — standards, repeatable assets, KPIs.</em><br><em>Measure (economics): gross margin per engagement · billable utilisation · defect escape rate.</em></li>
       </ul>
       <p class='small' style='margin-top:8px;font-style:italic;'>If the thesis is economic, the metrics have to be too. Pick three from your tier and report them quarterly.</p>
     </div>
@@ -978,7 +978,7 @@
         <span class='energy energy-high' style='background: #ff6b35;'>high</span>
       </div>
       <p class='small'><strong>DO:</strong> Direct eye contact with the group. Ask implicitly — which tier are YOU? Read the metric line under each card last — that's the answer to 'how do I prove this to my CFO?' (Jarrod #17).</p>
-      <p><strong>SAY:</strong> Concrete actions, by tier — and the numbers each tier should be measuring. Just Starting: turn on Teams transcription, get M365 Copilot in front of your delivery team, start a GitHub Copilot trial and install the Azure Skills Plugin — one command and your delivery team has twenty-five Azure skills and two hundred MCP tools, today. Run one Workshop-to-Plan this month. Measure adoption — % meetings transcribed, weekly active Copilot users, workshop hours per engagement. If those numbers don't move, nothing else will. Have the Basics: ship your first AI-first engagement on the public Microsoft stack. Measure flow — time-to-first-PR, rework rate on AI-drafted artefacts, documentation freshness. These are the metrics your delivery managers can act on. Ready to Scale: your IP becomes MCP servers, your methodology becomes prompt libraries — and the numbers go to the CFO. Gross margin per engagement, billable utilisation, defect escape rate. If you can publish those quarter on quarter, you're not selling AI delivery — you're proving it.</p>
+      <p><strong>SAY:</strong> Concrete actions, by tier — and the numbers each tier should be measuring. Just Starting: turn on Teams transcription, get M365 Copilot in front of your delivery team, start a GitHub Copilot trial and install the Azure Skills Plugin — one command and your delivery team has twenty-five Azure skills and two hundred MCP tools, today. Run one Workshop-to-Plan this month. Measure adoption — % meetings transcribed, weekly active Copilot users, workshop hours per engagement. If those numbers don't move, nothing else will. Have the Basics: ship your first AI-first engagement on the public Microsoft stack. Measure flow — time-to-first-PR, rework rate on AI-drafted artefacts, documentation freshness. These are the metrics your delivery managers can act on. Ready to Scale: your IP becomes MCP servers, your methodology becomes prompt libraries — and the numbers go to the CFO. Some partners call this the CoE: standards, repeatable assets, KPIs. Whatever you call it, the result is the same. Gross margin per engagement, billable utilisation, defect escape rate. If you can publish those quarter on quarter, you're not selling AI delivery — you're proving it.</p>
     </div>
   </div>
   <div class='act-divider'>
@@ -1036,11 +1036,12 @@
     <div class='slide-panel'>
       <div class='sn'>Slide 23</div>
       <h2>The Trust Boundary</h2>
-      <h4>Why this works at enterprise scale. Every tool in this deck inherits Microsoft's enterprise trust framework.</h4>
+      <h4>Why this works at enterprise scale. Platform-grade trust on the data, the model, and the agent itself.</h4>
       <ul>
         <li><strong>Data Security:</strong> Customer data stays inside the Microsoft trust boundary. No training on your customer data. Entra ID authentication. SOC 2, ISO 27001, GDPR.</li>
         <li><strong>AI Quality:</strong> Production-grade guardrails. Content filtering, grounding in verified data, evaluation frameworks in CI, continuous monitoring.</li>
         <li><strong>Responsible AI:</strong> Microsoft's six Responsible AI principles. Fairness, reliability, privacy, inclusiveness, transparency, accountability — built into the platform.</li>
+        <li><strong>Agent Operations:</strong> Tool allowlists scope what each agent can touch. Approval gates on every write action. Every action logged, every change reversible. The rails are what let the agent move fast safely.</li>
       </ul>
     </div>
     <div class='script-panel'>
@@ -1048,8 +1049,8 @@
         <span class='timing'>3min</span>
         <span class='energy energy-high' style='background: #ff6b35;'>calm</span>
       </div>
-      <p class='small'><strong>DO:</strong> Final slide. Slow right down. Land on the footer. Then thank the room and open for questions.</p>
-      <p><strong>SAY:</strong> Last slide. I moved this one out of the appendix because if I skipped over it, you would rightly stop me. Everything you saw today sits inside Microsoft's enterprise trust boundary. Your customer's data does not leave it. No model trains on it. Entra handles identity. Foundry handles content filtering and evaluation. The six Responsible AI principles are built into the platform from day one. That is why an AI-first partner delivery practice is defensible. It is also why your customer's CISO will let you ship. Thank you. Let's talk.</p>
+      <p class='small'><strong>DO:</strong> Final slide. Slow right down. Land on the footer. Then thank the room and open for questions. If anyone asks 'how do you stop the agent from doing something stupid,' point at the Agent Operations card — that's the answer (Juan Manuel #3).</p>
+      <p><strong>SAY:</strong> Last slide. I moved this one out of the appendix because if I skipped over it, you would rightly stop me. Everything you saw today sits inside Microsoft's enterprise trust boundary. Your customer's data does not leave it. No model trains on it. Entra handles identity. Foundry handles content filtering and evaluation. The six Responsible AI principles are built into the platform from day one. And on the agent itself — tool allowlists scope what each one can touch, approval gates fire on every write action, every action is logged, every change is reversible. The rails are what let the agent move fast safely. That is why an AI-first partner delivery practice is defensible. It is also why your customer's CISO will let you ship. Thank you. Let's talk.</p>
     </div>
   </div>
   >
