@@ -1068,6 +1068,48 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
+<section class="slide" id="squad-appendix" data-label="Appendix · Squads" data-appendix="true" data-notes="DO: Hidden by default. Press D from anywhere to jump here, B to return to where you came from. Pull this out only if devs/dev-leads are in the room. The video is pre-recorded — let it play, do not narrate over it. (Juan Manuel #2) SAY: This is the leap. Up to here we've been talking about Copilot speeding up your devs. This slide is what happens when you stop using Copilot as one helper and start orchestrating a team of agents. Squad — Brady Gaster's open-source multi-agent orchestrator — defines a team in TypeScript that lives in your repo. Specialist roles fan out in parallel. File-write guards and approval gates baked in. Persistent memory across sessions. One install, one squad init, and you direct the team. Watch the demo, then we'll talk about what changes when your delivery model is a squad of agents instead of a single Copilot session.">
+  <div class="slide-inner" style="max-width:1180px;">
+    <div class="part-label reveal" style="color:var(--teal);">APPENDIX · IN YOUR POCKET</div>
+    <h2 class="reveal d1">From individual productivity to <span class="accent">delivery factory</span></h2>
+    <p class="lead reveal d2">Multi-agent topology that lives in your repo. Press <span style="display:inline-block;padding:1px 7px;border:1px solid var(--border);border-radius:5px;background:var(--bg-alt,#fff);font-family:ui-monospace,monospace;font-size:13px;font-weight:600;">D</span> from anywhere to jump here, <span style="display:inline-block;padding:1px 7px;border:1px solid var(--border);border-radius:5px;background:var(--bg-alt,#fff);font-family:ui-monospace,monospace;font-size:13px;font-weight:600;">B</span> to return.</p>
+
+    <div class="reveal d3" style="display:grid;grid-template-columns:1.5fr 1fr;gap:28px;margin-top:24px;align-items:stretch;">
+      <!-- Video / placeholder. To swap in the real video, replace the .video-placeholder div with:
+           <video controls preload="metadata" style="width:100%;height:100%;object-fit:contain;border-radius:12px;background:#000;"><source src="assets/demo-squad.mp4" type="video/mp4"></video> -->
+      <div class="video-frame" style="aspect-ratio:16/9;background:#0b1416;border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <div class="video-placeholder" style="text-align:center;padding:40px;color:#cfd8d8;">
+          <div style="font-size:56px;line-height:1;margin-bottom:18px;color:var(--teal);">▶</div>
+          <div style="font-weight:700;font-size:17px;color:#fff;margin-bottom:6px;letter-spacing:.01em;">Demo · Squad in action</div>
+          <div style="font-size:12.5px;line-height:1.55;color:#9aabab;max-width:36ch;margin:0 auto;">Pre-recorded. One direction in, four agents fan out in parallel, file-write guards hold, you review the merge.</div>
+          <div style="margin-top:18px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#5e7373;">Pending capture · assets/demo-squad.mp4</div>
+        </div>
+      </div>
+
+      <div class="block-grid" style="grid-template-columns:1fr;gap:10px;">
+        <div class="block-card" style="padding:14px 16px;">
+          <div class="block-title" style="font-size:14.5px;display:flex;align-items:center;gap:8px;"><span style="font-size:18px;">🚀</span> Specialists in parallel</div>
+          <div class="block-desc" style="font-size:12.5px;line-height:1.5;">Roles fan out together on one direction you set. You review the merge.</div>
+        </div>
+        <div class="block-card" style="padding:14px 16px;">
+          <div class="block-title" style="font-size:14.5px;display:flex;align-items:center;gap:8px;"><span style="font-size:18px;">🛡️</span> Allowed actions</div>
+          <div class="block-desc" style="font-size:12.5px;line-height:1.5;">File-write guards, PII scrubbing, reviewer lockout. Rules in code, not prompts.</div>
+        </div>
+        <div class="block-card" style="padding:14px 16px;">
+          <div class="block-title" style="font-size:14.5px;display:flex;align-items:center;gap:8px;"><span style="font-size:18px;">🧠</span> Persistent memory</div>
+          <div class="block-desc" style="font-size:12.5px;line-height:1.5;">Decisions and conventions stored in <code style="font-size:11.5px;">.squad/</code>. Inspectable with your code.</div>
+        </div>
+        <div class="block-card" style="padding:14px 16px;">
+          <div class="block-title" style="font-size:14.5px;display:flex;align-items:center;gap:8px;"><span style="font-size:18px;">🐙</span> GitHub-native, SDK-first</div>
+          <div class="block-desc" style="font-size:12.5px;line-height:1.5;">TypeScript <code style="font-size:11.5px;">squad.config.ts</code>. <code style="font-size:11.5px;">copilot --agent squad</code>. Alpha · MIT.</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal d4" style="font-size:12.5px;color:var(--fg-muted);margin-top:22px;font-style:italic;">Brady Gaster · <a href="https://bradygaster.github.io/squad/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">bradygaster.github.io/squad</a> · Surfaced from Juan Manuel Servera Bondroit's review</p>
+  </div>
+</section>
+
 </div><!-- end #deck -->
 
 <!-- Presenter notes view (same file, ?presenter=notes) -->
@@ -1212,7 +1254,12 @@ const slideObs=new IntersectionObserver(e=>{
 slides.forEach(s=>slideObs.observe(s));
 
 // Keyboard navigation
+let demoReturnIndex=null;
+const demoSlideEl=document.getElementById('squad-appendix');
+const demoSlideIndex=demoSlideEl?Array.from(slides).indexOf(demoSlideEl):-1;
 document.addEventListener('keydown',e=>{
+  if(e.ctrlKey||e.metaKey||e.altKey)return;
+  if(e.target&&e.target.matches&&e.target.matches('input,textarea,[contenteditable]'))return;
   if(e.key==='ArrowDown'||e.key==='PageDown'||e.key===' '){
     e.preventDefault();
     slides[Math.min(activeIndex+1,total-1)].scrollIntoView({behavior:'smooth'});
@@ -1221,6 +1268,15 @@ document.addEventListener('keydown',e=>{
     slides[Math.max(activeIndex-1,0)].scrollIntoView({behavior:'smooth'});
   }else if(e.key==='Home'){e.preventDefault();slides[0].scrollIntoView({behavior:'smooth'});}
   else if(e.key==='End'){e.preventDefault();slides[total-1].scrollIntoView({behavior:'smooth'});}
+  else if((e.key==='d'||e.key==='D')&&demoSlideIndex>=0&&activeIndex!==demoSlideIndex){
+    e.preventDefault();
+    demoReturnIndex=activeIndex;
+    slides[demoSlideIndex].scrollIntoView({behavior:'smooth'});
+  }else if((e.key==='b'||e.key==='B')&&demoReturnIndex!==null&&activeIndex===demoSlideIndex){
+    e.preventDefault();
+    const back=demoReturnIndex;demoReturnIndex=null;
+    slides[back].scrollIntoView({behavior:'smooth'});
+  }
 });
 
 // ── Deck mode only: broadcast + P-to-open-presenter ──
