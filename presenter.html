@@ -181,6 +181,7 @@ h1{
   font-family:var(--font-display);font-size:clamp(40px,5vw,64px);
   line-height:1.1;font-weight:800;margin-bottom:24px;
   letter-spacing:-.02em;color:var(--fg);
+  text-wrap:balance;
 }
 h1 .accent{color:var(--teal)}
 h1 .coral{color:var(--coral)}
@@ -188,18 +189,21 @@ h2{
   font-family:var(--font-display);font-size:clamp(30px,3.2vw,44px);
   line-height:1.15;font-weight:700;margin-bottom:20px;
   letter-spacing:-.015em;
+  text-wrap:balance;
 }
 h2 .accent{color:var(--teal)}
 h2 .coral{color:var(--coral)}
 .lead{
-  font-size:19px;line-height:1.65;color:var(--fg-secondary);
-  max-width:600px;margin-bottom:36px;
+  font-size:21px;line-height:1.55;color:var(--fg-secondary);
+  max-width:54ch;margin-bottom:36px;
+  text-wrap:pretty;
 }
 .lead strong{color:var(--fg);font-weight:600}
 .quote{
   border-left:3px solid var(--teal);padding:12px 0 12px 20px;
   color:var(--fg-secondary);font-size:17px;line-height:1.6;
-  margin-top:32px;max-width:640px;
+  margin-top:32px;max-width:60ch;
+  text-wrap:balance;
 }
 .quote strong{color:var(--fg);font-weight:600}
 
@@ -510,7 +514,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="hook-stats" data-label="Where Margin Hides" data-notes="DO: Optional opener: run a 2-min Menti poll — &quot;Where does your team spend the most non-billable time?&quot; Documentation / research / scheduling / manual tasks. Reveal results, then move to the three stats. Land on the Fellowmind callout — name the partner, name the agent, point at the link. That is the proof. SAY: Sixty to eighty hours per engagement on documentation and admin. That is a full consultant-week, buried inside every project, before you bill a single dollar of AI work. Fifteen percent of consultant time never reaches an invoice. And here is the part that has changed: the same reports now show twenty-five to forty percent of that overhead is reducible with AI tooling that is already public. You already own the licences. The question is whether your delivery process reflects it yet. And if you want a public proof point — Fellowmind built Hive AI, an agentic platform whose flagship agent matches consultant CVs to RFP requirements. Built by a consultancy, productised for consultancies. That is the customer-zero pattern this session is about — spot the friction in your own delivery, build the agent, and the agent becomes part of what you sell.">
+<section class="slide" id="hook-stats" data-label="Where Margin Hides" data-notes="DO: Optional opener: run a 2-min Menti poll — &quot;Where does your team spend the most non-billable time?&quot; Documentation / research / scheduling / manual tasks. Reveal results, then move to the three stats. Land on the Fellowmind callout — name the partner, name the agent, point at the link. That is the proof. SAY: Sixty to eighty hours per engagement on documentation and admin. That is a full consultant-week, buried inside every project, before you bill a single dollar of AI work. Fifteen percent of consultant time never reaches an invoice. The third number is the one moving fast: the same reports now show twenty-five to forty percent of that overhead is reducible with AI tooling that is already public. You already own the licences. The question is whether your delivery process reflects it yet. And if you want a public proof point — Fellowmind built Hive AI, an agentic platform whose flagship agent matches consultant CVs to RFP requirements. Built by a consultancy, productised for consultancies. That is the customer-zero pattern this session is about — spot the friction in your own delivery, build the agent, and the agent becomes part of what you sell.">
   <div class="slide-inner">
     <div class="part-label reveal">THE HOOK</div>
     <h2 class="reveal d1">Reclaim <span class="accent">25%</span> of your team's time</h2>
@@ -613,7 +617,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="client-facing" data-label="Client-Facing" data-notes="DO: Point at each card in turn. Don't read the cards verbatim — elaborate. SAY: Pre-sales first. Azure Copilot pulls reference architectures and cost estimates straight from the Architecture Center. Your solution architects spend time adapting, not searching. Discovery, second. M365 Copilot does the recaps and the action items — free, already on, most teams are not using it seriously yet. WorkIQ gives you workplace analytics so you understand the customer before the workshop, not after. Design, third. Foundry patterns and Copilot Studio shortcuts turn a two-week design sprint into four days.">
+<section class="slide" id="client-facing" data-label="Client-Facing" data-notes="DO: Point at each card in turn. Don't read the cards verbatim — elaborate. SAY: Pre-sales first. Azure Copilot pulls reference architectures and cost estimates straight from the Architecture Center. Your solution architects spend their time adapting the output. The searching disappears. Discovery, second. M365 Copilot does the recaps and the action items — free, already on, most teams are not using it seriously yet. WorkIQ gives you workplace analytics so you walk into the workshop already knowing how the customer's teams actually work. Design, third. Foundry patterns and Copilot Studio shortcuts turn a two-week design sprint into four days.">
   <div class="slide-inner">
     <div class="part-label reveal">PHASE 1 · PRE-SALES → DESIGN</div>
     <h2 class="reveal d1">Client-Facing Phases — where <span class="accent">partners lead</span></h2>
@@ -677,11 +681,11 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="pm-backbone" data-label="PM Backbone" data-notes="DO: Spend extra seconds on the catalog block. This is the piece most partners still do not know exists. SAY: Here's the piece that ties it together, and here's what changed this year. Microsoft now publishes an official MCP catalog at github.com/microsoft/mcp. Azure MCP, ADO MCP, Fabric MCP, Microsoft Learn MCP, SQL, Power BI, Clarity, Data Factory. One place, one naming convention, remote endpoints where it makes sense. If you were waiting for MCP to feel official before putting it in production — that wait is over.">
+<section class="slide" id="pm-backbone" data-label="PM Backbone" data-notes="DO: Spend extra seconds on the catalog block. This is the piece most partners still do not know exists. SAY: This is the piece that ties it together. What changed this year matters. Microsoft now publishes an official MCP catalog at github.com/microsoft/mcp. Azure MCP, ADO MCP, Fabric MCP, Microsoft Learn MCP, SQL, Power BI, Clarity, Data Factory. One place, one naming convention, remote endpoints where it makes sense. If you were waiting for MCP to feel official before putting it in production — that wait is over.">
   <div class="slide-inner">
     <div class="part-label reveal">PHASE 3 · CONNECTIVE TISSUE</div>
     <h2 class="reveal d1">The <span class="accent">Project Management</span> Backbone</h2>
-    <p class="lead reveal d2">The connective tissue. WorkIQ, ADO Copilot, the MCP catalog, and Cowork — siblings, not one tool.</p>
+    <p class="lead reveal d2">The connective tissue. WorkIQ, ADO Copilot, the MCP catalog, and Cowork — four surfaces working in parallel.</p>
     <div class="block-grid reveal d3">
       <div class="block-card">
         <div class="block-icon">📋</div>
@@ -717,7 +721,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="demo-cli" data-label="Demo: CLI + MCP" data-notes="DO: Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is what Henri flagged as the differentiator. SAY: I need to set up a landing zone for a new customer project. Old world, two to four hours — and most of that isn't typing, it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep review-ready against your patterns, logs the ADO work item, and drafts the handoff summary. None of that is shipped without a senior pair of eyes — but the senior is reviewing, not typing. The point isn't the speed — it's that the agent is grounded in what the customer told you, not in a prompt I made up.">
+<section class="slide" id="demo-cli" data-label="Demo: CLI + MCP" data-notes="DO: Pre-demo question: ask the room — 'if I gave this to a consultant, how long? An hour? Half a day?' Get two or three answers. THEN make the transcript drop the move they remember — open the CLI, drag the recap file in, and only then type the prompt. That visible 'I'm grounding the agent in real customer context' moment is what Henri flagged as the differentiator. SAY: I need to set up a landing zone for a new customer project. Old world, two to four hours. Most of that time isn't typing — it's the consultant rereading a meeting transcript trying to remember what the customer asked for. Watch what happens when I just hand the transcript to the agent. One prompt. Customer recap goes in, the agent reads what the customer actually said, calls Azure MCP to check what's already deployed in the subscription, drafts Bicep review-ready against your patterns, logs the ADO work item, and drafts the handoff summary. None of that ships without a senior pair of eyes. The senior is reviewing now instead of typing. The real point is grounding. The agent reads actual customer words instead of a prompt I cooked up.">
   <div class="slide-inner">
     <div class="part-label reveal">LIVE DEMO</div>
     <h2 class="reveal d1"><span class="accent">Copilot CLI</span> + MCP, grounded in customer context</h2>
@@ -872,11 +876,11 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="ai-first-delivery" data-label="AI-First Delivery" data-notes="DO: Use this slide to push back if anyone reduces this path to 'just MCP'. Walk all four cards. Pause on Continuous AI — that's the surface most partners haven't seen yet. SAY: AI-First Delivery is GitHub Copilot adopted across the full SDLC — not a productivity tool on a laptop, a team capability. Four surfaces around it. MCP is the connector — the Microsoft catalog plus your own custom servers. Yes, some partner IP lives there. But not all of it. Your methodology lives in skills and prompt libraries. Your quality bar lives in eval suites — automated tests that catch regressions before deploy. And the surface most partners haven't seen yet — GitHub's Continuous AI: repo-level agents that keep docs fresh, triage issues, run fault analysis, and lift quality on every PR. Partner IP compounds across all four.">
+<section class="slide" id="ai-first-delivery" data-label="AI-First Delivery" data-notes="DO: Use this slide to push back if anyone reduces this path to 'just MCP'. Walk all four cards. Pause on Continuous AI — that's the surface most partners haven't seen yet. SAY: AI-First Delivery is GitHub Copilot adopted across the full SDLC. A team capability. The laptop-autocomplete framing of 2024 is gone. Four surfaces around it. MCP is the connector — the Microsoft catalog plus your own custom servers. Yes, some partner IP lives there. But not all of it. Your methodology lives in skills and prompt libraries. Your quality bar lives in eval suites — automated tests that catch regressions before deploy. And the surface most partners haven't seen yet — GitHub's Continuous AI: repo-level agents that keep docs fresh, triage issues, run fault analysis, and lift quality on every PR. Partner IP compounds across all four.">
   <div class="slide-inner">
     <div class="part-label reveal">PATH 4</div>
     <h2 class="reveal d1">AI-First <span class="accent">Delivery</span> with GitHub Copilot</h2>
-    <p class="lead reveal d2">Four surfaces. GitHub Copilot powers them all. Partner IP compounds across all four — not just custom MCP.</p>
+    <p class="lead reveal d2">Four surfaces. GitHub Copilot powers them all. Partner IP compounds across all four, and custom MCP is only one of them.</p>
     <div class="block-grid reveal d3" style="grid-template-columns:repeat(2,1fr)">
       <div class="block-card">
         <div class="block-icon">⚙️</div>
@@ -903,7 +907,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide slide-alt" id="toolbox-agents" data-label="Your Agent Toolbox" data-notes="DO: Slow down. This is the signature visual of the deck. Let the audience read the grid for five seconds before you narrate. Point at one role that matches your own consulting focus. Stress that the descriptions are written deliberately as 'what is different on Monday' — not what the role does in general. SAY: This is the slide I want you to photograph. Six roles every CAIP partner already has. Six agent patterns — one per role. Each card answers a single question: what is this person doing on Monday that they were not doing on Friday? The Solution Architect is drafting reference designs in hours, not days, against your live Azure inventory. The Account Lead is walking into the customer call with a proposal first draft and the past wins already surfaced. The Delivery Manager has the Monday status report written for her — she reviews and forwards. The Tech Lead is reviewing pull requests with full repo context, and the agent is the scribe in the design review. The AI Engineer is generating evaluation harnesses from the spec — prompt versioning in CI, not in a notebook. The Data Engineer has pipeline drafts and RAG indexes ready for review before the standup. Every one of these is buildable on the public Microsoft stack — two to four weeks of partner engineering each. And the foundation just got cheaper: Microsoft shipped the Azure Skills Plugin a few weeks ago — twenty-five Azure skills, two hundred MCP tools, one command. That gives every delivery team the starter toolbox. Your two to four weeks is layering your IP on top — your plays, your ratecards, your customer context. The partners who build the first two or three are going to be very hard to out-pitch in twelve months.">
+<section class="slide slide-alt" id="toolbox-agents" data-label="Your Agent Toolbox" data-notes="DO: Slow down. This is the signature visual of the deck. Let the audience read the grid for five seconds before you narrate. Point at one role that matches your own consulting focus. Stress that the descriptions are written deliberately as 'what is different on Monday' — not what the role does in general. SAY: This is the slide I want you to photograph. Six roles every CAIP partner already has. Six agent patterns — one per role. Each card answers a single question: what is this person doing on Monday that they were not doing on Friday? The Solution Architect is drafting reference designs in hours, not days, against your live Azure inventory. Account Leads walk into the customer call with a proposal first draft and the past wins already surfaced. For the Delivery Manager, the Monday status report is written for her — she reviews and forwards. Tech Leads review pull requests with full repo context, and the agent is the scribe in the design review. Your AI Engineer is generating evaluation harnesses from the spec, with prompt versioning living in CI. The Data Engineer has pipeline drafts and RAG indexes ready for review before the standup. Every one of these is buildable on the public Microsoft stack — two to four weeks of partner engineering each. And the foundation just got cheaper: Microsoft shipped the Azure Skills Plugin a few weeks ago — twenty-five Azure skills, two hundred MCP tools, one command. That gives every delivery team the starter toolbox. Your two to four weeks is layering your IP on top — your plays, your ratecards, your customer context. The partners who build the first two or three are going to be very hard to out-pitch in twelve months.">
   <div class="slide-inner">
     <div class="part-label reveal">ACT FIVE · SYNTHESIS</div>
     <h2 class="reveal d1">Build your AI delivery <span class="accent">toolbox</span></h2>
@@ -973,7 +977,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="setup-in-one-prompt" data-label="One prompt setup" data-notes="DO: Pause after reading the heading. Let the blocks speak for five seconds. Then pick one — 'Read a docs URL' is my favourite — and narrate why that is the real unlock. No engineer needed to translate docs into config. SAY: What you are about to feel in three minutes is this. You paste one prompt. Copilot CLI does four things in a row that, yesterday, would have been your job. It picks where to put code. It reads documentation. It edits configuration. It reboots its own tool chain. None of this needs a preview waitlist. It is the pattern. Every exercise your consultants do for the next year starts to look like this. That is the bet.">
+<section class="slide" id="setup-in-one-prompt" data-label="One prompt setup" data-notes="DO: Pause after reading the heading. Let the blocks speak for five seconds. Then pick one — 'Read a docs URL' is my favourite — and narrate why that is the real unlock. No engineer needed to translate docs into config. SAY: What you are about to feel in three minutes is this. You paste one prompt. Copilot CLI does four things in a row that, yesterday, would have been your job. It picks where to put code. Reads the documentation. Edits the configuration. Reboots its own tool chain. None of this needs a preview waitlist. It is the pattern. Every exercise your consultants do for the next year starts to look like this. That is the bet.">
   <div class="slide-inner">
     <div class="part-label reveal">ACT SEVEN · HANDS-ON</div>
     <h2 class="reveal d1">One prompt. Copilot did <span class="accent">all of this</span>.</h2>
@@ -1030,7 +1034,7 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide slide-alt" id="trust-boundary"data-label="Trust Boundary" data-notes="DO: Final slide. Slow right down. Land on the footer. Then thank the room and open for questions. SAY: Last slide. I moved this one out of the appendix because if I skipped over it, you would rightly stop me. Everything you saw today sits inside Microsoft's enterprise trust boundary. Your customer's data does not leave it. No model trains on it. Entra handles identity. Foundry handles content filtering and evaluation. The six Responsible AI principles are platform defaults, not a checklist you bolt on at the end. That is why an AI-first partner delivery practice is defensible. It is also why your customer's CISO will let you ship. Thank you. Let's talk.">
+<section class="slide slide-alt" id="trust-boundary"data-label="Trust Boundary" data-notes="DO: Final slide. Slow right down. Land on the footer. Then thank the room and open for questions. SAY: Last slide. I moved this one out of the appendix because if I skipped over it, you would rightly stop me. Everything you saw today sits inside Microsoft's enterprise trust boundary. Your customer's data does not leave it. No model trains on it. Entra handles identity. Foundry handles content filtering and evaluation. The six Responsible AI principles are built into the platform from day one. That is why an AI-first partner delivery practice is defensible. It is also why your customer's CISO will let you ship. Thank you. Let's talk.">
   <div class="slide-inner">
     <div class="part-label reveal">THE CLOSE</div>
     <h2 class="reveal d1">The <span class="accent">Trust</span> Boundary</h2>
