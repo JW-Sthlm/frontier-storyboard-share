@@ -541,26 +541,27 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="lifecycle" data-label="Delivery Lifecycle" data-notes="DO: Walk the phases left to right. Pause on Discovery and Design — point at the highlight. Then mention the continuous loop back from Operate to Discovery. SAY: Every engagement follows this arc. Pre-sales, discovery, design, build, test, deploy, operate — then the loop starts again when scope evolves. Most of the talking about AI in delivery focuses on the build phase. That misses where the money is. Sixty to seventy percent of the overhead sits in the client-facing phases up front. Workshops, requirements, architecture assessments, proposals. The next slides show you the specific tools that bite into that.">
+<section class="slide" id="lifecycle" data-label="Delivery Lifecycle" data-notes="DO: Walk the five phases left to right. Pause on Pursue and Scope, the two highlighted at the front. Land hard on the hint underneath. Then mention the loop: Run feeds back into the next Pursue when the customer comes back for the next thing. SAY: Every CAIP engagement follows the same five-phase arc. Pursue is the front-of-funnel work: account research, proposals, architecture sketches, estimates. Scope is the workshop, requirements, ADRs, reference design. Build is code, tests, pull requests. Ship is release and deploy. Run is operate, monitor, learn, capture. Most of the noise about AI in delivery focuses on Build. That misses where the money is. Sixty to seventy percent of every project's consultancy overhead sits in Pursue and Scope, the client-facing front of the arc. Workshops, requirements, architecture assessments, proposals. That is where AI-first delivery compounds first. The next slides show you the specific tools that bite into that overhead.">
   <div class="slide-inner">
     <h2 class="reveal d1">The Partner <span class="accent">Delivery Lifecycle</span></h2>
-    <p class="lead reveal d2">Every CAIP project follows this arc. AI can compress every phase — but the overhead clusters up front.</p>
+    <p class="lead reveal d2">Five phases. AI compresses every one. The biggest compression sits at the front.</p>
     <div class="process-flow reveal d3">
-      <div class="process-step">Pre-Sales</div>
+      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Pursue</div>
       <div class="process-arrow">&rarr;</div>
-      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Discovery</div>
-      <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Design</div>
+      <div class="process-step" style="background:var(--teal);color:#fff;font-weight:700;border-color:var(--teal);">Scope</div>
       <div class="process-arrow">&rarr;</div>
       <div class="process-step">Build</div>
       <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Test / QA</div>
+      <div class="process-step">Ship</div>
       <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Deploy</div>
-      <div class="process-arrow">&rarr;</div>
-      <div class="process-step">Operate</div>
+      <div class="process-step">Run</div>
     </div>
-    <p class="reveal d4" style="font-size:13px;color:var(--fg-muted);margin-top:32px;font-style:italic">60–70% of delivery overhead clusters in the client-facing phases (Pre-Sales → Design). That is where AI-first compounds fastest.</p>
+    <div class="reveal d4" style="margin-top:32px;padding:18px 26px;background:rgba(45,110,109,.06);border:1px solid rgba(45,110,109,.18);border-radius:8px;max-width:60ch;margin-left:auto;margin-right:auto">
+      <p style="font-size:15.5px;line-height:1.55;color:var(--fg);text-align:center;margin:0">
+        <strong style="color:var(--teal);font-weight:600">60–70% of every project's consultancy overhead lives in Pursue + Scope.</strong>
+        Workshops, proposals, requirements, architecture sketches. That is where AI-first compounds first.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -578,13 +579,13 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
 
       <div class="lm-cell lm-phase">Pursue</div>
       <div class="lm-cell lm-lead">Account Lead</div>
-      <div class="lm-cell lm-assets"><span class="pill">M365 Copilot</span><span class="pill">Azure Copilot</span><span class="pill">PMX</span><span class="pill">MSX</span></div>
+      <div class="lm-cell lm-assets"><span class="pill">M365 Copilot</span><span class="pill">Azure Copilot</span><span class="pill">Copilot Studio</span><span class="pill">Microsoft Learn MCP</span></div>
       <div class="lm-cell lm-handoff">Proposal · architecture sketch · estimate</div>
       <div class="lm-cell lm-gate">SA sign-off</div>
 
       <div class="lm-cell lm-phase">Scope</div>
       <div class="lm-cell lm-lead">Solution Architect</div>
-      <div class="lm-cell lm-assets"><span class="pill">Workshop-to-Plan</span><span class="pill">WorkIQ</span><span class="pill">Foundry patterns</span><span class="pill">Copilot Studio</span></div>
+      <div class="lm-cell lm-assets"><span class="pill">WorkIQ</span><span class="pill">Copilot Studio</span><span class="pill">Foundry templates</span><span class="pill">Architecture Center</span></div>
       <div class="lm-cell lm-handoff">Plan · ADRs · reference design</div>
       <div class="lm-cell lm-gate">Customer sign-off</div>
 
@@ -618,66 +619,51 @@ body.mode-thumb #nav,body.mode-thumb #counter,body.mode-thumb #keys,body.mode-th
   </div>
 </section>
 
-<section class="slide" id="client-facing" data-label="Client-Facing" data-notes="DO: Point at each card in turn. Don't read the cards verbatim — elaborate. SAY: Pre-sales first. Azure Copilot pulls reference architectures and cost estimates straight from the Architecture Center. Your solution architects spend their time adapting the output. The searching disappears. Discovery, second. M365 Copilot does the recaps and the action items — free, already on, most teams are not using it seriously yet. WorkIQ gives you workplace analytics so you walk into the workshop already knowing how the customer's teams actually work. Design, third. Foundry patterns and Copilot Studio shortcuts turn a two-week design sprint into four days.">
+<section class="slide" id="client-facing" data-label="Client-Facing" data-notes="DO: Two cards. Take them one at a time. Don't read them verbatim, elaborate. SAY: Pursue first. The front-of-funnel work: account research, proposals, architecture sketches, estimates. M365 Copilot drafts the proposal content. Azure Copilot pulls reference architectures and cost models from the Architecture Center. Copilot Studio is where partners are starting to build their own pre-sales agents. Fellowmind built Hive AI: an agentic platform whose flagship agent matches consultant CVs to RFP requirements, already in production. That is the customer-zero pattern. Pre-sales stops being a blank page. Then Scope. Workshops, requirements, ADRs, reference design. M365 Copilot does the recaps and tracks action items. WorkIQ gives you workplace analytics so you walk into the workshop already knowing how the customer's teams actually work. Copilot Studio prototypes the agent live in the workshop, demoed back to the customer the same week. Foundry templates and the Architecture Center cut the design loop from two weeks to four days.">
   <div class="slide-inner">
-    <div class="part-label reveal">PHASE 1 · PRE-SALES → DESIGN</div>
-    <h2 class="reveal d1">Client-Facing Phases — where <span class="accent">partners lead</span></h2>
-    <p class="lead reveal d2">Pre-sales, discovery, design. AI replaces the manual grind. Human judgment stays where it belongs.</p>
-    <div class="card-grid reveal d3" style="grid-template-columns:repeat(3,1fr)">
+    <div class="part-label reveal">PHASES 1 + 2 · PURSUE + SCOPE</div>
+    <h2 class="reveal d1">Client-facing phases — where <span class="accent">partners lead</span></h2>
+    <p class="lead reveal d2">Pursue and Scope. AI replaces the manual grind. Human judgment stays where it belongs.</p>
+    <div class="card-grid reveal d3" style="grid-template-columns:repeat(2,1fr);gap:32px">
       <div class="info-card">
         <div class="icon">💼</div>
-        <div class="card-title">Pre-Sales</div>
-        <div class="card-text">Azure Copilot and Architecture Center draft solutioning content and cost models in minutes. Proposals stop being blank pages.</div>
+        <div class="card-title">Pursue</div>
+        <div class="card-text">Account research, proposals, architecture sketches, estimates. M365 Copilot drafts proposal content. Azure Copilot pulls reference architectures and cost models. Copilot Studio is where partners are building their own pre-sales agents (RFP analyzers, CV matching, win-loss). Pre-sales stops being a blank page.</div>
       </div>
       <div class="info-card">
         <div class="icon">🔍</div>
-        <div class="card-title">Discovery</div>
-        <div class="card-text">M365 Copilot handles meeting recaps and action tracking. WorkIQ surfaces how the customer's teams actually work.</div>
-      </div>
-      <div class="info-card">
-        <div class="icon">🏛️</div>
-        <div class="card-title">Design</div>
-        <div class="card-text">Copilot Studio and Azure AI Foundry patterns accelerate architecture decisions. ADRs and landing zone templates are drafted for review.</div>
+        <div class="card-title">Scope</div>
+        <div class="card-text">Workshops, requirements, ADRs, reference design. M365 Copilot handles recaps and action tracking. WorkIQ surfaces how the customer's teams actually work. Copilot Studio prototypes the agent live in the workshop. Foundry templates and Architecture Center accelerate design decisions.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="slide" id="delivery-execution" data-label="Delivery Execution" data-notes="DO: Emphasise 'agent mode' — that's the 2026 shift. Not autocomplete any more. Point at Spec Kit on the left as the upstream on-ramp. Land on the Cowork strip at the bottom — that's the always-on layer most partners haven't seen yet. SAY: A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Upstream, GitHub Spec Kit turns requirements into structured plans the agent can execute against — the bridge from SOW to working code. Then agent mode drafts the code, runs the tests, reads the errors, opens a pull request for review. With Azure MCP wired in, it knows what is actually deployed in your subscriptions. Same developer, materially more throughput on the routine build tasks — boilerplate, tests, infra scaffolding. The senior judgement still happens at code review and at the architecture decisions; the agent just stops being the bottleneck for everything around them. And alongside all of it, GitHub Copilot Cowork handles the repeating admin work — status roll-ups, ticket triage, documentation nudges — without a person in the loop. Speed compounds because every phase hands cleaner context to the next, and the boring work doesn't sit on a consultant's desk any more.">
+<section class="slide" id="delivery-execution" data-label="Delivery Execution" data-notes="DO: Three phases, three cards. Emphasise agent mode on the Build card; that is the 2026 shift. Land on the Cowork strip at the bottom. That is the always-on layer most partners haven't seen yet. SAY: A year ago we called GitHub Copilot an autocomplete tool. That framing is dead. Build phase. GitHub Spec Kit turns workshop output into structured plans the agent can execute against, the bridge from SOW to working code. Then agent mode drafts the code, runs the tests, reads the errors, opens a pull request for review. Azure MCP gives it live cloud context, so it knows what is actually deployed in your subscriptions. ADO MCP keeps work-tracking honest. Same developer, materially more throughput on routine build tasks: boilerplate, tests, infra scaffolding. Senior judgment stays at code review and architecture decisions. The agent stops being the bottleneck for everything around them. Ship phase. GitHub Actions with Copilot assist. IaC for environment parity. Deployment drift caught before it reaches production. Change advisory and the deploy gate stay human. Run phase. Azure Copilot for monitoring. Incidents summarised, root causes proposed, runbooks generated on the fly. Continuous AI workflows keep docs fresh and triage issues without a person in the loop. Eval thresholds catch model drift before customers do. And alongside all of it, GitHub Copilot Cowork handles the repeating admin work that doesn't belong on a consultant's desk: status roll-ups, ticket triage, documentation nudges, recurring reports. Speed compounds because every phase hands cleaner context to the next, and the boring work doesn't sit on a consultant's desk any more.">
   <div class="slide-inner">
-    <div class="part-label reveal">PHASE 2 · BUILD → OPERATE</div>
-    <h2 class="reveal d1">Delivery Execution — where <span class="accent">speed compounds</span></h2>
-    <p class="lead reveal d2">Spec through operate. GitHub Copilot agent mode does the routine. Senior judgment stays on the gates.</p>
-    <div class="card-grid reveal d3" style="grid-template-columns:repeat(5,1fr);gap:14px">
-      <div class="info-card" style="padding:18px 14px">
-        <div class="icon">📐</div>
-        <div class="card-title">Spec → Build</div>
-        <div class="card-text" style="font-size:13.5px">GitHub Spec Kit. Requirements become structured plans agent mode can execute against. The on-ramp from SOW to code.</div>
-      </div>
-      <div class="info-card" style="padding:18px 14px">
+    <div class="part-label reveal">PHASES 3 + 4 + 5 · BUILD · SHIP · RUN</div>
+    <h2 class="reveal d1">Delivery execution — where <span class="accent">speed compounds</span></h2>
+    <p class="lead reveal d2">Build, Ship, Run. GitHub Copilot agent mode does the routine. Senior judgment stays on the gates.</p>
+    <div class="card-grid reveal d3" style="grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="info-card">
         <div class="icon">⚡</div>
         <div class="card-title">Build</div>
-        <div class="card-text" style="font-size:13.5px">Copilot agent mode drafts code, runs tests, opens PRs for review. Azure MCP for live cloud context. 30–50% faster on routine build tasks — boilerplate, tests, infra scaffolding.</div>
+        <div class="card-text">GitHub Spec Kit turns plans into structured tasks. Copilot agent mode drafts code, runs tests, opens pull requests. Azure MCP and ADO MCP supply live cloud and project context. 30–50% faster on routine build work: boilerplate, tests, infra scaffolding. PR review and CI stay human.</div>
       </div>
-      <div class="info-card" style="padding:18px 14px">
-        <div class="icon">🧪</div>
-        <div class="card-title">Test / QA</div>
-        <div class="card-text" style="font-size:13.5px">Copilot generates unit tests. Azure Load Testing scales perf runs. GenAI Ops evaluates AI workloads.</div>
-      </div>
-      <div class="info-card" style="padding:18px 14px">
+      <div class="info-card">
         <div class="icon">🚀</div>
-        <div class="card-title">Deploy</div>
-        <div class="card-text" style="font-size:13.5px">GitHub Actions with Copilot assist. Deployment drift caught before it reaches production.</div>
+        <div class="card-title">Ship</div>
+        <div class="card-text">GitHub Actions with Copilot assist. IaC for environment parity. Deployment drift caught before it reaches production. Release notes drafted automatically. Change advisory and the deploy gate stay human.</div>
       </div>
-      <div class="info-card" style="padding:18px 14px">
+      <div class="info-card">
         <div class="icon">📈</div>
-        <div class="card-title">Operate</div>
-        <div class="card-text" style="font-size:13.5px">Azure Copilot for monitoring. Incidents summarised, root causes proposed, runbooks on the fly.</div>
+        <div class="card-title">Run</div>
+        <div class="card-text">Azure Copilot for monitoring. Incidents summarised, root causes proposed, runbooks generated on the fly. Continuous AI workflows keep docs fresh and triage issues. Eval thresholds catch model drift before customers do.</div>
       </div>
     </div>
-    <div class="reveal d4" style="margin-top:18px;padding:14px 20px;background:rgba(45,110,109,.08);border-left:3px solid var(--teal);border-radius:6px;font-size:13.5px;line-height:1.5">
-      <strong style="color:var(--teal);text-transform:uppercase;letter-spacing:.06em;font-size:11px">Always on, alongside the lifecycle</strong><br>
-      <strong>GitHub Copilot Cowork</strong> — flexible automation for repeating admin work that doesn't belong on a consultant's desk: status roll-ups, ticket triage, documentation nudges, recurring report generation. The lifecycle keeps moving while Cowork handles the noise.
+    <div class="reveal d4" style="margin-top:18px;padding:14px 20px;background:rgba(45,110,109,.08);border-left:3px solid var(--teal);border-radius:6px;font-size:14px;line-height:1.55">
+      <strong style="color:var(--teal);text-transform:uppercase;letter-spacing:.06em;font-size:11px;display:block;margin-bottom:4px">Always on, alongside the lifecycle</strong>
+      <strong>GitHub Copilot Cowork.</strong> Flexible automation for repeating admin work that doesn't belong on a consultant's desk: status roll-ups, ticket triage, documentation nudges, recurring report generation. The lifecycle keeps moving while Cowork handles the noise.
     </div>
   </div>
 </section>
