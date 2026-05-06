@@ -1,62 +1,58 @@
 #Requires -Version 7.0
 <#
 .SYNOPSIS
-  Sync the latest storyboard + presenter deck from frontier-consultancy and push to GitHub Pages.
+  Sync the latest per-track storyboard and presenter files from frontier-consultancy.
 
-.EXAMPLE
-  .\sync.ps1 "tightened partner-voice quotes"
+.DESCRIPTION
+  Copies published HTML from the private frontier-consultancy repo into this GitHub Pages repo.
+  Prerequisite: frontier-consultancy is cloned next to this repo at ..\frontier-consultancy.
+  Run from this folder with: pwsh ./sync.ps1
 
-.EXAMPLE
-  .\sync.ps1                       # uses a generic commit message
+.NOTES
+  Review changes locally, then commit and push when ready.
 #>
-param(
-  [Parameter(Position = 0)]
-  [string]$Message = "update: sync from frontier-consultancy"
-)
 
 $ErrorActionPreference = "Stop"
 
-$repo   = $PSScriptRoot
-$source = Resolve-Path (Join-Path $repo "..\frontier-consultancy\presentation")
+$repo = $PSScriptRoot
 
 $map = @(
-  @{ From = "storyboard.html"; To = "storyboard.html" }
-  @{ From = "index.html";      To = "presenter.html"  }
+  @{
+    Source = "..\frontier-consultancy\tracks\caip\presentation\storyboard.html"
+    Destination = "caip\storyboard.html"
+  }
+  @{
+    Source = "..\frontier-consultancy\tracks\caip\presentation\index.html"
+    Destination = "caip\presenter.html"
+  }
+  <# Phase 5
+  @{
+    Source = "..\frontier-consultancy\tracks\aibs\presentation\storyboard.html"
+    Destination = "aibs\storyboard.html"
+  }
+  @{
+    Source = "..\frontier-consultancy\tracks\aibs\presentation\index.html"
+    Destination = "aibs\presenter.html"
+  }
+  #>
 )
 
-Write-Host "Source : $source" -ForegroundColor DarkGray
-Write-Host "Target : $repo"   -ForegroundColor DarkGray
+Write-Host "Source : ..\frontier-consultancy\tracks" -ForegroundColor DarkGray
+Write-Host "Target : $repo" -ForegroundColor DarkGray
 Write-Host ""
 
-foreach ($f in $map) {
-  $src = Join-Path $source $f.From
-  $dst = Join-Path $repo   $f.To
+foreach ($entry in $map) {
+  $src = Join-Path $repo $entry.Source
+  $dst = Join-Path $repo $entry.Destination
+  $dstFolder = Split-Path $dst -Parent
+
   if (-not (Test-Path $src)) { throw "Missing source file: $src" }
+
+  New-Item -ItemType Directory -Force -Path $dstFolder | Out-Null
   Copy-Item $src $dst -Force
-  Write-Host "  ✓ $($f.From) -> $($f.To)" -ForegroundColor Green
+  Write-Host "  ✓ $($entry.Source) -> $($entry.Destination)" -ForegroundColor Green
 }
 
-Push-Location $repo
-try {
-  $changes = git status --porcelain
-  if (-not $changes) {
-    Write-Host "`nNo changes to publish. Already up to date." -ForegroundColor Yellow
-    return
-  }
-
-  Write-Host "`nChanges:" -ForegroundColor Cyan
-  git -c color.ui=always status --short
-
-  git add -A
-  git commit -m $Message | Out-Null
-  Write-Host "`nPushing to origin/main..." -ForegroundColor Cyan
-  git push --quiet
-
-  $sha = git rev-parse --short HEAD
-  Write-Host "`n✓ Published $sha : $Message" -ForegroundColor Green
-  Write-Host "  https://jw-sthlm.github.io/frontier-storyboard-share/" -ForegroundColor Blue
-  Write-Host "  (reviewers: hard-refresh Ctrl+F5, live in ~60s)" -ForegroundColor DarkGray
-}
-finally {
-  Pop-Location
-}
+Write-Host "`nChanges:" -ForegroundColor Cyan
+git -C $repo status --short
+Write-Host "`nReview then commit and push when ready." -ForegroundColor Yellow
