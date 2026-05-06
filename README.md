@@ -1,49 +1,33 @@
-# frontier-storyboard-share
+# frontier-storyboard-share — ARCHIVED
 
-Internal landing page for Frontier Consultancy across partner tracks.
+> **This repo has moved.** Frontier Consultancy now ships from a single public mirror.
+>
+> **New home:** <https://jw-sthlm.github.io/frontier-consultancy-public/>
 
-This repo is the public GitHub Pages mirror. The source of truth stays in the private `frontier-consultancy` repo. Use this page for Microsoft reviewer access and stable links only.
+All HTML pages here meta-refresh to the new site:
 
-## URL
+| Old URL | New URL |
+|---|---|
+| `https://jw-sthlm.github.io/frontier-storyboard-share/` | `https://jw-sthlm.github.io/frontier-consultancy-public/` |
+| `…/caip/storyboard.html` | `…/frontier-consultancy-public/caip/storyboard.html` |
+| `…/caip/presenter.html` | `…/frontier-consultancy-public/caip/presentation/` |
+| `…/storyboard.html` | `…/frontier-consultancy-public/caip/storyboard.html` |
+| `…/presenter.html` | `…/frontier-consultancy-public/caip/presentation/` |
 
-Live site: https://jw-sthlm.github.io/frontier-storyboard-share/
+## Why the move
 
-The site is marked `noindex,nofollow`. Distribute through internal channels only.
+This repo started as a CAIP-only reviewer mirror with a manual `sync.ps1`. The new repo is the unified Frontier Consultancy public home — CAIP, AIBS, Security — synced via GitHub Actions from the private source-of-truth repo.
 
-## Layout
+## What lives where now
 
-- `index.html`: umbrella landing page with the pitch, track cards, and reviewer notes.
-- `caip/`: live CAIP storyboard and presenter deck.
-- `aibs/`: future AIBS track folder.
-- `security/`: future Security track folder.
-- `storyboard.html` and `presenter.html`: root redirect shims for older shared URLs.
+- **Source of truth:** private `JW-Sthlm/frontier-consultancy`
+- **Public mirror:** `JW-Sthlm/frontier-consultancy-public`, served at <https://jw-sthlm.github.io/frontier-consultancy-public/>
 
-## Sync workflow
+## Status of this repo
 
-`sync.ps1` copies generated HTML from the private repo into this mirror.
-
-Source pattern:
-
-```powershell
-..\frontier-consultancy\tracks\<track>\presentation\
-```
-
-Run manually after generating the track assets:
-
-```powershell
-cd C:\Users\jwallquist\projects\frontier-storyboard-share
-pwsh ./sync.ps1
-```
-
-Review the diff, then commit and push when ready. GitHub Pages usually updates shortly after push. Reviewers may need Ctrl+F5.
-
-## Adding a new track
-
-1. Copy the CAIP block in `sync.ps1` and update the source and destination paths.
-2. Copy the CAIP card in `index.html` and update scope, owner, status, and links.
-3. Run `pwsh ./sync.ps1`.
-4. Review the generated files locally.
-5. Commit and push to `origin/main`.
+- Kept alive only so existing bookmarks redirect.
+- No new content lands here.
+- `sync.ps1` is no longer used.
 
 ## Owner
 
